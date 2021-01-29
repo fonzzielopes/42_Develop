@@ -1,0 +1,50 @@
+include <unistd.h>
+
+void	ft_putchar(char c)
+{
+		write(1, &c, 1);
+}
+
+int		ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while ((s1[i] != '\0' && s2[i] != '\0') && s1[i] == s2[i])
+	{
+		i++;
+	}
+			return (s1[i] - s2[i]);
+}
+
+void	ft_sort(int ac, char *str)
+{
+	char	*temp;
+	int		count;
+
+	count = 1;
+	while (count < ac - 1)
+	{
+		if (ft_strcmp(str[count], str[count + 1])  > 0)
+		{
+			temp = str[count];
+			str[count] = str[count + 1];
+			str[count + 1] = temp;
+		}
+		else
+			count++;
+	}
+}
+
+int		main(int ac, char **av)
+{
+	int i;
+
+	i = 1;
+	while (ac > i)
+		{
+			if (av[i] > av[i + 1])
+				ft_sort(av[i], ac);
+			i++;
+		}
+}
