@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:03:39 by alopes            #+#    #+#             */
-/*   Updated: 2021/01/13 16:01:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/01/29 22:56:28 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@ int				ft_strlen(char *str)
 	int count;
 
 	count = 0;
-	while (*str != '\0')
+	while (str[count] != '\0')
 	{
 		count++;
-		str++;
 	}
 	return (count);
 }
