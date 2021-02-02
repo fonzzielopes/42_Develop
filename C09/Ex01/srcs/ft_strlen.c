@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 17:45:17 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/31 18:13:55 by alopes-          ###   ########.fr       */
+/*   Created: 2021/01/13 12:03:39 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/01 21:20:08 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-int		ft_strlen(char *src)
+int				ft_strlen(char *str)
 {
-	int i;
+	int count;
 
-	i = 0;
-	while (src[i] != '\0')
+	count = 0;
+	while (str[count] != '\0')
 	{
-		i++;
+		count++;
 	}
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*ptr;
-	int		i;
-
-	ptr = (char *)malloc(ft_strlen(src) + 1);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i] != '\0')
-	{
-		ptr[i] = src[i];
-		i++;
-	}
-	ptr[i] = src[i];
-	return (ptr);
+	return (count);
 }

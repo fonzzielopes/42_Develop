@@ -1,45 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 17:45:17 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/31 18:13:55 by alopes-          ###   ########.fr       */
+/*   Created: 2021/01/12 10:58:24 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/01 21:20:10 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-int		ft_strlen(char *src)
+void	ft_swap(int *a, int *b)
 {
-	int i;
+	int vazio;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*ptr;
-	int		i;
-
-	ptr = (char *)malloc(ft_strlen(src) + 1);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i] != '\0')
-	{
-		ptr[i] = src[i];
-		i++;
-	}
-	ptr[i] = src[i];
-	return (ptr);
+	vazio = *a;
+	*a = *b;
+	*b = vazio;
 }

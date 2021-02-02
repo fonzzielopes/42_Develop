@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 17:45:17 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/31 18:13:55 by alopes-          ###   ########.fr       */
+/*   Created: 2021/01/30 19:30:42 by alopes-           #+#    #+#             */
+/*   Updated: 2021/01/31 19:50:35 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-int		ft_strlen(char *src)
+typedef struct	s_stock_str
 {
-	int i;
+	int		size;
+	char	*str;
+	char	*copy;
+}				t_stock_str;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*ptr;
-	int		i;
-
-	ptr = (char *)malloc(ft_strlen(src) + 1);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i] != '\0')
-	{
-		ptr[i] = src[i];
-		i++;
-	}
-	ptr[i] = src[i];
-	return (ptr);
-}
+#endif
