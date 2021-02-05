@@ -5,25 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/01 12:43:06 by alopes-           #+#    #+#              #
-#    Updated: 2021/02/02 11:34:56 by alopes-          ###   ########.fr        #
+#    Created: 2021/02/04 10:36:33 by alopes-           #+#    #+#              #
+#    Updated: 2021/02/04 10:40:24 by alopes-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = ft_cat.c
 
-SRCS= srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c srcs/ft_swap.c
+SRCS= ft_cat.c
 OBJ = $(SRCS:.c=.o)
-INC = includes
 CC = gcc
 CFLAGS= -Wall -Wextra -Werror
 
-
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o} -I $(INC)
-
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME):
+	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 

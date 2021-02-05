@@ -6,13 +6,13 @@
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 19:56:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/01 21:20:03 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/02 11:22:46 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_pustr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str)
 	{

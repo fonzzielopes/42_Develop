@@ -1,22 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 19:56:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/02 21:14:15 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/04 22:58:36 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int		ft_strlen(char *src)
 {
-	while (*str)
+	int size;
+
+	size = 0;
+	while (src[size])
 	{
-		write(1, str, 1);
-		str++;
+		size++;
 	}
+	return (size);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	char	*ptr;
+	char	*rem;
+	int		i;
+
+	ptr = (char*)str;
+	i = 0;
+	while (i < ft_strlen((char *)str))
+	{
+		if (ptr[i] != c)
+			i++;
+		else
+		{
+			rem = ptr + i;
+			break ;
+		}
+	}
+	return (rem);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 10:58:24 by alopes            #+#    #+#             */
-/*   Updated: 2021/01/13 15:51:19 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/02 21:28:26 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-	int vazio;
+	int temp;
 
-	vazio = *a;
+	temp = *a;
 	*a = *b;
-	*b = vazio;
+	*b = temp;
 }

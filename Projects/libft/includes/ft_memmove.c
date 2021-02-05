@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/30 16:39:54 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/30 17:26:18 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/03 20:13:44 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/03 22:11:26 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-#include "ft_abs.h"
-
-int	main(void)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	nb = 5;
+	char	*ptr_d;
+	char	*ptr_s;
+	int		i;
+	int		operation;
+	int		begin;
 
-	printf("%d\n", ABS(nb));
+	begin = 0;
+	ptr_d = (char *)dest;
+	ptr_s = (char *)src;
+	i = 0;
+	if (src > dest)
+		operation = 1;
+	else
+	{
+		begin = n - 1;
+		operation = -1;
+	}
+	while (i < n)
+	{
+		*(ptr_d + begin) = *(ptr_s + begin);
+		begin += operation;
+		i++;
+	}
+	return (dest);
 }

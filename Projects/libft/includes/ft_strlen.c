@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 19:56:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/02 21:14:15 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/04 21:50:16 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/04 21:52:02 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int		ft_strlen(char *src)
 {
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
+	int size;
+
+	size = 0;
+	while (src[size])
+		{
+			size++;
+		}
+	return (size);
 }

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 19:56:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/02 21:14:15 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/02 23:12:30 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/02 23:54:00 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
-void	ft_putstr(char *str)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	while (*str)
+	int				i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = str;
+	while (i < n)
 	{
-		write(1, str, 1);
-		str++;
+		*ptr = c;
+		ptr++;
+		n--;
 	}
+	return (str);
 }

@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/30 00:02:20 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/30 15:53:15 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/03 14:58:41 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/03 23:13:51 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_boolean.h"
+#include <stdio.h>
+#include <string.h>
 
-void ft_putstr(char *str)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	while (*str)
-		write(1, str++, 1);
+	char	*ptr_d;
+	char	*ptr_s;
+	int		i;
+
+	ptr_d = (char *)dest;
+	ptr_s = (char *)src;
+	i = 0;
+	while (i < n)
+	{
+		ptr_d[i] = ptr_s[i];
+		i++;
+	}
+	return (dest);
 }
 
-t_bool ft_is_even(int nbr)
+int main()
 {
-	return ((EVEN(nbr)) ? TRUE : FALSE);
-}
-
-int main(int argc, char **argv)
-{
-	(void)argv;
-
-	if (ft_is_even(argc - 1) == TRUE)
-		ft_putstr(EVEN_MSG);
-	else
-		ft_putstr(ODD_MSG);
-	return (SUCCESS);
+   char csrc[100] = "Geeksfor";
+   ft_memcpy(csrc+5, csrc, strlen(csrc)+1);
+   printf("%s", csrc);
+   return 0;
 }

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/30 17:45:08 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/30 18:11:18 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/03 22:12:12 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/03 23:13:11 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_point.h"
+#include <stdio.h>
+#include <string.h>
 
-void	set_point(t_point *point)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	point->x = 42;
-	point->y = 21;
-}
+	char	*ptr;
+	char	*find;
 
-int main(void)
-{
-	t_point point;
-	set_point(&point);
-	return (0);
+	ptr = (char *)str;
+	find = 0;
+	while ((str != 0) && (n--))
+	{
+		if (*ptr != c)
+			ptr++;
+		else
+		{
+			find = ptr;
+			break ;
+		}
+	}
+	return (find);
 }
