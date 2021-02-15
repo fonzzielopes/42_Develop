@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/03 23:19:58 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/03 23:55:45 by alopes-          ###   ########.fr       */
+/*   Created: 2021/01/28 17:45:17 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/10 15:59:11 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int	ft_memcmp(const void *str1, const void *str2, size_t n)
+char	*ft_strdup(char *src)
 {
-	char *ptr_s1;
-	char *ptr_s2;
+	char	*ptr;
+	int		i;
+	int		size;
 
-	ptr_s1 = (char *)str1;
-	ptr_s2 = (char *)str2;
-	while (n > 0)
+	size = 0;
+	while (src[size])
+		++size;
+	ptr = malloc(sizeof(char) * (size + 1));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (ptr_s1 != ptr_s2)
-			return (*ptr_s1 - *ptr_s2);
-		n--;
-		ptr_s1++;
-		ptr_s2++;
+		ptr[i] = src[i];
+		i++;
 	}
-	return (0);
+	ptr[i] = src[i];
+	return (ptr);
 }

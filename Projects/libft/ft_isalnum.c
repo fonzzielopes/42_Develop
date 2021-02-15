@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/03 20:13:44 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/03 22:11:26 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/09 18:03:18 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/10 20:04:29 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_isalnum(int arg)
 {
-	char	*ptr_d;
-	char	*ptr_s;
-	int		i;
-	int		operation;
-	int		begin;
-
-	begin = 0;
-	ptr_d = (char *)dest;
-	ptr_s = (char *)src;
-	i = 0;
-	if (src > dest)
-		operation = 1;
+	if ((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z')
+	|| (arg >= '0' && arg <= '9'))
+		return (1);
 	else
-	{
-		begin = n - 1;
-		operation = -1;
-	}
-	while (i < n)
-	{
-		*(ptr_d + begin) = *(ptr_s + begin);
-		begin += operation;
-		i++;
-	}
-	return (dest);
+		return (0);
 }

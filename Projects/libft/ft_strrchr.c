@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 20:22:27 by alopes-           #+#    #+#             */
-/*   Updated: 2021/01/26 20:42:51 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/05 14:27:08 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/10 20:25:22 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				ft_strlen(char *str)
+#include <stdio.h>
+
+char	*ft_strrchr(const char *str, int c)
 {
-	int i;
+	char *ptr;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int i;
-
-	i = 0;
-	while ((i < size - 1) && dest[i] != '\0')
+	ptr = NULL;
+	while (*str)
 	{
-		dest[i] = src[i];
-		i++;
+		if (*str == c)
+			ptr = (char *)str;
+		++str;
 	}
-	dest[i++] = '\0';
-	return (ft_strlen(src));
+	if (ptr)
+		return (ptr);
+	if (c == '\0')
+		return ((char *)str);
+	return (0);
 }

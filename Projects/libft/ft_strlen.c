@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/04 22:58:36 by alopes-          ###   ########.fr       */
+/*   Created: 2021/02/04 21:50:16 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/10 14:59:38 by alopes-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int		ft_strlen(char *src)
 {
@@ -22,25 +20,4 @@ int		ft_strlen(char *src)
 		size++;
 	}
 	return (size);
-}
-
-char	*ft_strchr(const char *str, int c)
-{
-	char	*ptr;
-	char	*rem;
-	int		i;
-
-	ptr = (char*)str;
-	i = 0;
-	while (i < ft_strlen((char *)str))
-	{
-		if (ptr[i] != c)
-			i++;
-		else
-		{
-			rem = ptr + i;
-			break ;
-		}
-	}
-	return (rem);
 }
