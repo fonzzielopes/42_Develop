@@ -6,7 +6,7 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 21:50:33 by alopes-           #+#    #+#              #
-#    Updated: 2021/02/16 14:51:45 by alopes           ###   ########.fr        #
+#    Updated: 2021/02/16 16:58:39 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-
-so:
-	$(CC) -c -fPIC $(CFLAGS) $(SRCS)
-	gcc -shared -o libft.so $(OBJ)
 
 re: fclean all
 

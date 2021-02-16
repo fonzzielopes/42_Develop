@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 21:50:16 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/10 14:59:38 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/16 17:14:24 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *src)
+#include "libft.h"
+
+size_t		ft_strlen(const char *src)
 {
-	int size;
+	size_t size;
 
 	size = 0;
 	while (src[size])

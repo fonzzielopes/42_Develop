@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 12:58:44 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/10 16:21:09 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/16 17:28:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	res;
+	size_t	i;
+	size_t	j;
+	size_t	res;
 
 	i = 0;
 	while (dest[i] != '\0')
