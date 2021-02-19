@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:17 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/10 15:31:27 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/18 13:08:13 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int arg)
+int	ft_isascii(int c)
 {
-	if (arg >= 0 && arg <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);

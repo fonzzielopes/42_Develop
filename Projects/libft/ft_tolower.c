@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 20:54:23 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/10 15:10:40 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/18 13:29:37 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int arg)
+int	ft_tolower(int c)
 {
-	if (arg >= 'A' && arg <= 'Z')
-		return (arg + 32);
-	return (arg);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

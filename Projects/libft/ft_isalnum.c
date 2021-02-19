@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:03:18 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/10 20:04:29 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/18 13:07:57 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_isalnum(int arg)
+int	ft_isalnum(int c)
 {
-	if ((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z')
-	|| (arg >= '0' && arg <= '9'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+	|| (c >= '0' && c <= '9'))
 		return (1);
 	else
 		return (0);

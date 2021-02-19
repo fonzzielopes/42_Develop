@@ -6,39 +6,36 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:13:44 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/16 13:24:13 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/18 17:17:17 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char	*ptr_d;
-	char	*ptr_s;
-	size_t	i;
+	char	*pdst;
+	char	*psrc;
 	int		operation;
 	int		begin;
 
 	begin = 0;
-	ptr_d = (char *)dest;
-	ptr_s = (char *)src;
-	i = 0;
-	if (n == 0 || dest == src)
-		return (dest);
-	if (src > dest)
+	pdst = (char *)dst;
+	psrc = (char *)src;
+	if (n == 0 || dst == src)
+		return (dst);
+	if (src > dst)
 		operation = 1;
 	else
 	{
 		begin = n - 1;
 		operation = -1;
 	}
-	while (i < n)
+	while (n--)
 	{
-		*(ptr_d + begin) = *(ptr_s + begin);
+		*(pdst + begin) = *(psrc + begin);
 		begin += operation;
-		i++;
 	}
-	return (dest);
+	return (dst);
 }
