@@ -6,53 +6,50 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:38:44 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/19 14:54:57 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/22 18:44:19 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nbrlen(int nbr)
+static int	digit_counter(int n)
 {
-	int		len;
+	int		i;
 
-	len = 0;
-	if (nbr == 0)
-		return (1);
-	if (nbr < len)
-		len += 1;
-	while (nbr != 0)
+	i = 1;
+	while (n >= 10 || n <= -10)
 	{
-		nbr = nbr / 10;
-		len++;
+		n /= 10;
+		i++;
 	}
-	return (len);
+	if (n < 0)
+		i++;
+	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	n_size;
-	char	*str;
+	char	*ptr;
+	long	nbr;
+	int		i;
 
-	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	n_size = ft_nbrlen(n);
-	str = (char *)malloc(sizeof(char) * (n_size + 1));
-	if (str == 0)
+	nbr = n;
+	i = digit_counter(n);
+	ptr = malloc(sizeof(char) * (i + 1));
+	if (!ptr)
 		return (0);
-	str[n_size] = 0;
-	if (n < 0)
+	ptr[i] = '\0';
+	if (!n)
+		ptr[0] = '0';
+	if (nbr < 0)
 	{
-		str[0] = '-';
-		n *= -1;
-		i += 1;
+		nbr = -nbr;
+		ptr[0] = '-';
 	}
-	while (i < n_size--)
+	while (nbr)
 	{
-		str[n_size] = (n % 10) + '0';
-		n /= 10;
+		ptr[--i] = nbr % 10 + '0';
+		nbr /= 10;
 	}
-	return (str);
+	return (ptr);
 }

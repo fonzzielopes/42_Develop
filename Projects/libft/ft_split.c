@@ -6,13 +6,13 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:12:08 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/19 14:42:46 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 12:06:04 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_wordcount(const char *s, char c)
+size_t		wordcount(const char *s, char c)
 {
 	size_t	i;
 	size_t	w;
@@ -22,51 +22,37 @@ size_t		ft_wordcount(const char *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c)
-			w += 1;
+			w++;
 		while (s[i] != c && s[i + 1])
-			i += 1;
-		i += 1;
+			i++;
+		i++;
 	}
 	return (w);
 }
 
-size_t		ft_wordlen(const char *s, char c)
+char		**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	len;
+	char	**a;
+	int		len;
+	int		aindex;
+	int		i;
 
-	i = 0;
+	a = malloc(sizeof(char *) * (wordcount(s, c) + 1));
+	if (!a)
+		return (0);
+	a[wordcount(s, c)] = 0;
+	aindex = 0;
+	while (*s && *s == c)
+		s++;
 	len = 0;
-	while (s[i] == c)
-		i += 1;
-	while (s[i] != c && s[i++])
-		len += 1;
-	return (len);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	size_t	k;
-	char	**arr;
-
-	i = 0;
-	k = 0;
-	if (!s || !(arr = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1))))
-		return (NULL);
-	while (i < ft_wordcount(s, c))
+	while (s[len])
 	{
-		if (!(arr[i] = (char *)malloc(sizeof(char) * (ft_wordlen(&s[k], c) + 1))))
-			return (NULL);
-		j = 0;
-		while (s[k] == c)
-			k += 1;
-		while (s[k] != c && s[k])
-			arr[i][j++] = s[k++];
-		arr[i][j] = '\0';
-		i += 1;
+		i = len;
+		while (s[len] && s[len] != c)
+			len++;
+		a[aindex++] = ft_substr(s, i, len - i);
+		while (s[len] && s[len] == c)
+			len++;
 	}
-	arr[i] = NULL;
-	return (arr);
+	return (a);
 }

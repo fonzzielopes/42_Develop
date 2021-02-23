@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 23:19:58 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/18 17:28:12 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/19 18:11:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
-	size_t 			i;
+	size_t			i;
 
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;

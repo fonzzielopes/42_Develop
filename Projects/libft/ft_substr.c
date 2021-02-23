@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 12:17:31 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/18 15:51:03 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/23 12:47:35 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/23 12:57:05 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*ptr;
+	size_t	i;
+	size_t	size;
 
+	size = ft_strlen(s);
+	if (size < len)
+		len = size;
+	ptr = malloc(sizeof(char) * (len + 1));
+	if (!ptr || !s)
+		return (NULL);
 	i = 0;
-	if (!s)
-		return (0);
-	if (ft_strlen(s) < start)
-	{
-		if (!(ptr = (char*)malloc(1)))
-			return (0);
-		ptr[0] = '\0';
-		return (ptr);
-	}
-	if (ft_strlen(s) <= start + len)
-		len = ft_strlen(s) - start;
-	if (!(ptr = (char*)malloc(len + 1)))
-		return (0);
-	while (s[start] && i < len)
-		ptr[i++] = s[start++];
+	if (start < ft_strlen(s))
+		while (s[start + i] && i < len)
+		{
+			ptr[i] = s[start + i];
+			i++;
+		}
 	ptr[i] = '\0';
 	return (ptr);
 }

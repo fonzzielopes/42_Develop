@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:26:21 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/18 17:14:31 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/19 18:18:09 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		pdst[i] = psrc[i];
 		if (psrc[i] == (unsigned char)c)
-			return ((unsigned char *) dst + i + 1);
-			i++;
+			return ((unsigned char *)dst + i + 1);
+		i++;
 	}
 	return (NULL);
 }

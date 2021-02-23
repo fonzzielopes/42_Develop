@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopes- <alopes-@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:29:43 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/08 19:08:44 by alopes-          ###   ########.fr       */
+/*   Updated: 2021/02/22 12:56:48 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 {
 	int i;
 	int j;
 
 	if (!*to_find)
-		return ((char*)str);
+		return ((char*)s);
 	i = 0;
-	while (str[i] != '\0' && (size_t)i < len)
+	while (s[i] != '\0' && (size_t)i < len)
 	{
-		if (str[i] == to_find[0])
+		if (s[i] == to_find[0])
 		{
 			j = 1;
-			while (to_find[j] != '\0' && str[i + j] == to_find[j] &&
+			while (to_find[j] != '\0' && s[i + j] == to_find[j] &&
 					(size_t)(i + j) < len)
 				++j;
 			if (to_find[j] == '\0')
-				return ((char *)&str[i]);
+				return ((char *)&s[i]);
 		}
 		++i;
 	}

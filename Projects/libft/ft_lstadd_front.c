@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 14:41:38 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/19 13:20:33 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/22 14:35:50 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/23 15:19:40 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isspace(int c)
+#include "libft.h"
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	return (c == '\n' || c == '\t' || c == ' ');
+	if (!new)
+		return ;
+	if (lst)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
