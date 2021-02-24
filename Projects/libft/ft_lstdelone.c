@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 16:30:55 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 12:04:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:40:07 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!del)
+	if (!lst || !del)
 		return ;
 	del(lst->content);
 	free(lst);

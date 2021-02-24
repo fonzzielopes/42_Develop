@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:12:08 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 12:06:04 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:22:10 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char		**ft_split(char const *s, char c)
 	int		aindex;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	a = malloc(sizeof(char *) * (wordcount(s, c) + 1));
 	if (!a)
 		return (0);

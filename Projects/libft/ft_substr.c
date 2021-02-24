@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:47:35 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 12:57:05 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:51:04 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	size;
 
+	if (!s)
+		return (NULL);
 	size = ft_strlen(s);
 	if (size < len)
 		len = size;
 	ptr = malloc(sizeof(char) * (len + 1));
-	if (!ptr || !s)
+	if (!ptr)
 		return (NULL);
 	i = 0;
 	if (start < ft_strlen(s))

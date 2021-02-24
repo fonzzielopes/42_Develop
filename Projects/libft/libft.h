@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:08:59 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/22 13:09:23 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 15:36:44 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isascii(int c);
-int					ft_iswspace(int c);
 int					ft_isspace(int c);
 int					ft_isprint(int c);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);

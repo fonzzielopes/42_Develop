@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 16:47:44 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 13:15:20 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:40:22 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!f)
+	if (!lst || !f)
 		return ;
 	while (lst)
 	{
