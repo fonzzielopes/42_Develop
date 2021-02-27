@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:04:16 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/24 17:37:36 by alopes           ###   ########.fr       */
+/*   Updated: 2021/02/26 17:37:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,29 +81,27 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*ptr;
 	size_t	i;
-	size_t	j;
-	size_t	res;
+	size_t	size;
 
+	if (!s)
+		return (NULL);
+	size = ft_strlen(s);
+	if (size < len)
+		len = size;
+	ptr = malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
 	i = 0;
-	while (dst[i] != '\0')
-		++i;
-	res = 0;
-	while (src[res] != '\0')
-		++res;
-	if (size <= i)
-		res += size;
-	else
-		res += i;
-	j = 0;
-	while (src[j] != '\0' && i + 1 < size)
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
-	dst[i] = '\0';
-	return (res);
+	if (start < ft_strlen(s))
+		while (s[start + i] && i < len)
+		{
+			ptr[i] = s[start + i];
+			i++;
+		}
+	ptr[i] = '\0';
+	return (ptr);
 }
