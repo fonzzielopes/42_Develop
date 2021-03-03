@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:03:35 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/03 12:18:11 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/03 12:18:02 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /*
 ** 1. Verificar o tamanho de saved
@@ -22,7 +22,7 @@
 ** 7. Ou devolve zero para EOF
 */
 
-int	archive(char **saved, char **line)
+static int	archive(char **saved, char **line)
 {
 	char	*temp;
 	int		len;
@@ -53,7 +53,7 @@ int	archive(char **saved, char **line)
 **	3.3 Liberta o temp;
 ** Caso nao haja
 ** 3.4 Copia e aloca o que existe em buf para saved
-** Se chega encontrar uma "\n", termina o processo com break
+** Se chega econtrar uma "\n", termina o processo com break
 ** 4. Liberta buf
 */
 
@@ -86,7 +86,8 @@ int			read_line(int fd, char **saved)
 
 /*
 ** 1. Verificar situacoes de erro
-** 2. Iniciar leituras de linha e respectivo conteudo ate "\n"
+** 2. Verificar primeira linha, enviar para o archivo
+** e verificar ate encontrar "\n"
 ** 3. Se a seguinte linha que ler for 0, copia nada e devolve EOF
 ** 4. Se a linha que leu tiver conteudo verificado no archive for verdadeiro,
 ** continua a ler
@@ -100,8 +101,11 @@ int			get_next_line(int fd, char **line)
 	static char	*saved[1024];
 	int			ret;
 
-	if (fd < 0 || line == NULL || (read(fd, 0, 0) == -1) || BUFF_SIZE < 1)
+	if (fd < 0 || line == NULL || read(fd, 0, 0) || BUFF_SIZE <= 0)
 		return (-1);
+	if (saved[fd])
+		if (archive(&saved[fd], line))
+			return (1);
 	ret = read_line(fd, saved);
 	if (ret == 0 && !saved[fd])
 	{

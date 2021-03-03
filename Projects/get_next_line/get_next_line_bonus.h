@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:04:20 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/02 16:24:06 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/02 12:23:03 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # include <string.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -19,7 +19,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # define BUFF_SIZE 1
-
 
 int			get_next_line(int fd, char **line);
 char		*ft_strchr(const char *str, int c);
