@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:54:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/11 15:52:19 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/11 16:17:47 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,26 @@ int ft_printf(const char *format, ...)
 {
 	va_list args;
 	int count;
-	int i;
 	char *input;
 	char *temp;
 
-	i = 0;
 	input = ft_strdup((char *)format);
 	count = 0;
 	va_start(args, format);
-	while(input && input[i])
+	while(input && input[count])
 	{
-		if (input[i] != '%')
-			ft_putchar(input[i]);
+		if (input[count] != '%')
+			ft_putchar(input[count]);
 		else
 		{
-			i++;
-			if (input[i] == 's')
+			count++;
+			if (input[count] == 's')
 			{
 				temp = va_arg(args, char *);
 				ft_putstr(temp);
 			}
 		}
-		i++;
+		count++;
 	}
 	va_end(args);
 	free((char *)input);
