@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:56:55 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/11 14:24:46 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/15 15:29:57 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include "../libft/libft.h"
+#include <stdlib.h>
+#include "libft/libft.h"
 
 typedef struct		s_flags
 {
@@ -25,11 +26,14 @@ typedef struct		s_flags
 	int				zero;
 	int				width;
 	int				type;
-	int				min_width;
-	int				sign;
 
 }					t_flags;
 
 int					ft_printf(const char *format, ...);
+int					check_var(char c);
+t_flags				ft_init_flags(void);
+int					case_char(char c, t_flags flag);
+
+
 
 #endif
