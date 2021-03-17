@@ -6,25 +6,26 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 12:54:58 by alopes            #+#    #+#              #
-#    Updated: 2021/03/15 16:22:26 by alopes           ###   ########.fr        #
+#    Updated: 2021/03/17 11:08:48 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS =	ft_printf.c print_cases.c
-OBJS = $(SRCS:.c=.o)
+SRC = ft_printf.c ft_printf_utils.c ft_print_cases.c
+OBJ = $(SRC:.c=.o)
 INCLUDEDIR = ./
 HEADERS = $(INCLUDEDIR)ft_printf.h
 LIBFTDIR = ./libft/
 LIBFT = $(LIBFTDIR)libft.a
 CC = gcc
-RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDEDIR) -c
+
+.PHONY: all bonus clean fclean re
 
 all: $(NAME)
 
-$(NAME):    $(OBJS)
+$(NAME): $(OBJ)
 	ar rcs $(NAME) $?
 
 %.o: %.c $(HEADERS) $(LIBFT)
@@ -36,12 +37,10 @@ $(LIBFT):
 
 clean:
 	@make clean -C $(LIBFTDIR)
-	@/bin/rm -f $(OBJS)
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
 	@make fclean -C $(LIBFTDIR)
 	@/bin/rm -f $(NAME)
 
-re:		fclean all
-
-.PHONY:	all clean fclean re bonus
+re: fclean all
