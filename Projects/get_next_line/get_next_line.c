@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:03:35 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/03 12:18:11 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/03 17:59:41 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** 7. Ou devolve zero para EOF
 */
 
-int	archive(char **saved, char **line)
+int				archive(char **saved, char **line)
 {
 	char	*temp;
 	int		len;
@@ -57,7 +57,7 @@ int	archive(char **saved, char **line)
 ** 4. Liberta buf
 */
 
-int			read_line(int fd, char **saved)
+int				read_line(int fd, char **saved)
 {
 	char	*buf;
 	int		size;
@@ -66,7 +66,7 @@ int			read_line(int fd, char **saved)
 	buf = malloc(sizeof(char) * (BUFF_SIZE + 1));
 	if (!buf)
 		return (-1);
-	while ((size = read(fd, buf, BUFF_SIZE)) > 0)
+	while ((size = read(fd, buf, BUFF_SIZE + 1)) > 0)
 	{
 		buf[size] = '\0';
 		if (saved[fd])
@@ -95,7 +95,7 @@ int			read_line(int fd, char **saved)
 **
 */
 
-int			get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	static char	*saved[1024];
 	int			ret;
