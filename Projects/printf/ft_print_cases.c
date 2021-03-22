@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 13:12:27 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/19 17:56:10 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/22 15:05:17 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,18 @@ int				case_str(char *str, t_flags flag)
 	return (count);
 }
 
-int				case_ptr(void *ptr, t_flags flag)
+int				case_ptr(unsigned long *ptr, t_flags flag)
 {
-	//char *pt;
-	int count;
+	char	*arr;
+	int		count;
+	int		prec;
 
 	count = 0;
-	if (ptr == NULL)
-		return (case_str("(nil)", flag));
-	//if (flag.minus == 1 || flag.width < 0)
+	prec = flag.precision;
+	arr = ft_itoa_hex(ptr, prec);
+	if (arr == NULL)
+		return (-1);
+	count += case_str(arr, flag);
+	free(arr);
 	return (count);
 }

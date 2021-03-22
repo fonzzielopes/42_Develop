@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:56:55 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/19 17:56:11 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/22 16:37:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int					check_var(char c);
 t_flags				ft_init_flags(void);
 int					case_char(char c, t_flags flag);
 int					case_str(char *str, t_flags flag);
-int					case_ptr(void *ptr, t_flags flag);
+int					case_ptr(unsigned long *ptr, t_flags flag);
+int					case_nbr(unsigned *nbr, t_flags flag);
 int					get_width(const char **format, va_list args);
 int					get_precision(const char **format, va_list args);
 
