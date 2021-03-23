@@ -6,13 +6,13 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 12:54:58 by alopes            #+#    #+#              #
-#    Updated: 2021/03/17 11:08:48 by alopes           ###   ########.fr        #
+#    Updated: 2021/03/22 17:01:42 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_utils.c ft_print_cases.c
+SRC = ft_printf.c ft_printf_utils.c ft_print_cases.c ft_print_nbr.c
 OBJ = $(SRC:.c=.o)
 INCLUDEDIR = ./
 HEADERS = $(INCLUDEDIR)ft_printf.h

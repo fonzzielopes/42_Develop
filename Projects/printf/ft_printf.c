@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:54:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/22 16:35:27 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/23 15:13:15 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static int			convert_flag(va_list args, t_flags flag)
 		return (case_str(va_arg(args, char *), flag));
 	if (flag.type == 'p')
 		return (case_ptr(va_arg(args, unsigned long *), flag));
-	if (flag.type == 'd')
-		return (case_nbr(va_arg(args, unsigned *), flag));
+	if (flag.type == 'd' || flag.type == 'i')
+		return (case_nbr(va_arg(args, int), flag));
 	else
 		return (case_char(flag.type, flag));
 	return (0);
@@ -80,16 +80,12 @@ int					ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
+/*
 int main (void)
 {
-	int *ptr;
-	int i = 10;
-
-	ptr = &i;
-	printf("%10p\n", ptr);
-	ft_printf("%10p", ptr);
+	printf(" %-3.2d %10.42d \n", 1, -1);
+	ft_printf(" %-3.2d %10.42d ", 1, -1);
 
 	return (0);
 }
-
+*/

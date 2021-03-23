@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 13:12:27 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/22 15:05:17 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/23 13:56:56 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ static t_flags	width_spec(t_flags flag, int *len)
 		flag.dot = 0;
 	if (flag.width < 0) // regra do width negativa para a esquerda, primeiro vez que é definido
 		flag.minus = 1;
-	if (flag.dot && *len > flag.precision) // tem que ter '.', comprimento da str nao pode ser menor que a precision para depois ser definida como arg principal
+	if (flag.dot && *len > flag.precision && flag.type == 's')
+	/* tem que ter '.', comprimento da str nao pode ser menor que a precision para depois ser definida como arg principal
+	tem de ser tambem uma string, pois para caso de interger nao vai ler o ultimo arg */
 		*len = flag.precision; // definimos o valor max a ser impresso como len
 	return (flag);
 }
