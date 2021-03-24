@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:33:42 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/24 14:58:13 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/24 17:27:48 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,25 @@ int				case_nbr(int nbr, t_flags flag)
 		arr = ft_strdup("");
 	else
 		arr = ft_itoa_base(nbr, prec); // igual ao ptr, converte em str e adiciona o padding de 0's
+	if (arr == NULL)
+		return (-1);
+	count = case_str(arr, flag);
+	free(arr);
+	return (count);
+}
+
+int				case_unbr(unsigned nbr, t_flags flag)
+{
+	char	*arr;
+	int		count;
+	int		prec;
+
+	prec = flag.precision;
+	flag = get_flags(flag, &prec, nbr);
+	if (flag.dot && prec == 0 && nbr == 0 && flag.zero == 0)
+		arr = ft_strdup("");
+	else
+		arr = ft_utoa_base(nbr, 10, prec); // base 10 pois vamos ler como um unsigned int de base decimal
 	if (arr == NULL)
 		return (-1);
 	count = case_str(arr, flag);

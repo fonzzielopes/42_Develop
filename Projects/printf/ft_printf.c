@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:54:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/24 14:59:59 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/24 16:52:49 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static int			convert_flag(va_list args, t_flags flag)
 		return (case_ptr(va_arg(args, unsigned long *), flag));
 	if (flag.type == 'd' || flag.type == 'i')
 		return (case_nbr(va_arg(args, int), flag));
+	if (flag.type == 'u')
+		return (case_unbr(va_arg(args, unsigned), flag));
 	else
 		return (case_char(flag.type, flag));
 	return (0);
@@ -83,8 +85,8 @@ int					ft_printf(const char *format, ...)
 /*
 int main (void)
 {
-	printf(" 0*%0-*.*d*0 0*%0*.*d*0 \n", 6, 2, 102, 10, 21, -101);
-	printf(" 0*%0-*.*d*0 0*%0*.*d*0 \n", 2, 6, 102, 21, 10, -101);
+	printf(" 0*%0-*u*0 0*%0*u*0 \n", 21, 1021, 21, -1011);
+	ft_printf(" 0*%0-*u*0 0*%0*u*0 ", 21, 1021, 21, -1011);
 
 	return (0);
 }
