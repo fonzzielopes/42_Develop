@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 13:12:27 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/24 14:58:34 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/26 16:52:23 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_flags	width_spec(t_flags flag, int *len)
 	return (flag);
 }
 
-int				case_char(char c, t_flags flag)
+int				print_char(char c, t_flags flag)
 {
 	int		count;
 
@@ -61,14 +61,14 @@ int				case_char(char c, t_flags flag)
 	return (count);
 }
 
-int				case_str(char *str, t_flags flag)
+int				print_str(char *str, t_flags flag)
 {
 	int		count;
 	int 	len;
 
 	count = 0;
 	if (str == NULL)
-		return (case_str("(null)", flag)); // String becomes string literal “(null)”
+		return (print_str("(null)", flag)); // String becomes string literal “(null)”
 	len = ft_strlen(str);
 	flag = width_spec(flag, &len); // vamos ler a width que foi definida como arg
 	if (flag.minus == 1) // começa impressao da esquerda
@@ -84,7 +84,7 @@ int				case_str(char *str, t_flags flag)
 	return (count);
 }
 
-int				case_ptr(unsigned long *ptr, t_flags flag)
+int				print_ptr(unsigned long *ptr, t_flags flag)
 {
 	char	*arr;
 	int		count;
@@ -95,7 +95,7 @@ int				case_ptr(unsigned long *ptr, t_flags flag)
 	arr = ft_itoa_hex(ptr, prec); // feito nesta conversao do ptr para str
 	if (arr == NULL)
 		return (-1);
-	count += case_str(arr, flag);
+	count += print_str(arr, flag);
 	free(arr); // proteger de leaks
 	return (count);
 }

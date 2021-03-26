@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:24:06 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/22 15:05:19 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/26 16:35:15 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_flags	ft_init_flags(void)
 	flag.minus = 0;
 	flag.zero = 0;
 	flag.type = 0;
+	flag.hash = 0;
+	flag.space = 0;
+	flag.plus = 0;
 	return (flag);
 }
 
@@ -43,7 +46,7 @@ int		get_width(const char **format, va_list args)
 	if (ft_isdigit(**format)) // caso seja um digit
 	{
 		width = ft_atoi(*format); //precisa de passar o digit para int caso contrario vai buscar o valor ASCII
-		while (ft_isdigit(**format)) //tem de percorrer a quantida de digitos
+		while (ft_isdigit(**format)) //tem de percorrer a quantidade de digitos
 			(*format)++;
 		(*format)--; // apos leitura tem voltar a ler as flags ou conteudo, pois pode ter precision, etc
 	}
