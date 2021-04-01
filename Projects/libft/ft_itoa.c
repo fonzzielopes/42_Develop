@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:38:44 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 16:13:10 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:12:04 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	digit_counter(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*ptr;
 	long	nbr;

@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:47:35 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 16:51:04 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:16:11 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	if (start < ft_strlen(s))
+	{
 		while (s[start + i] && i < len)
 		{
 			ptr[i] = s[start + i];
 			i++;
 		}
+	}
 	ptr[i] = '\0';
 	return (ptr);
 }

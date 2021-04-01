@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 20:58:29 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/18 15:44:44 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:11:38 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char *str;
+	char	*str;
 
-	if (!(str = malloc(count * size)))
+	str = malloc(count * size);
+	if (!(str))
 		return (NULL);
 	ft_bzero(str, count * size);
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 16:47:28 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 16:39:55 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:12:24 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *next;
+	t_list	*next;
 
 	if (!lst || !del)
 		return ;

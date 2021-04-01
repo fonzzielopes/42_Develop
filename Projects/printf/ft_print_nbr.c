@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:33:42 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/26 17:05:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/29 14:35:26 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_flags		get_flags(t_flags flag, int *prec, int nbr)
 {
-	if (((flag.dot && *prec >= 0) || flag.width < 0 || flag.minus || flag.hash) && flag.zero)
+	if (((flag.dot && *prec >= 0) || flag.width < 0 || flag.minus) && flag.zero)
 		flag.zero = 0; // todos os casos para que a flag.zero seja ignorada
 	if (flag.zero)
 	{ /* ter atençao que flag.zero e ter padding é diferente, pois na flag é necessario contabilizar

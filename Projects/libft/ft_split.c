@@ -6,13 +6,13 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:12:08 by alopes            #+#    #+#             */
-/*   Updated: 2021/02/23 16:22:10 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:13:42 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		wordcount(const char *s, char c)
+size_t	wordcount(const char *s, char c)
 {
 	size_t	i;
 	size_t	w;
@@ -30,7 +30,7 @@ size_t		wordcount(const char *s, char c)
 	return (w);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**a;
 	int		len;

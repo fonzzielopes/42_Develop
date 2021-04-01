@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:29:43 by alopes-           #+#    #+#             */
-/*   Updated: 2021/02/22 12:56:48 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:19:45 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (!*to_find)
 		return ((char*)s);
@@ -26,8 +26,8 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t len)
 		if (s[i] == to_find[0])
 		{
 			j = 1;
-			while (to_find[j] != '\0' && s[i + j] == to_find[j] &&
-					(size_t)(i + j) < len)
+			while (to_find[j] != '\0' && s[i + j] == to_find[j]
+				&& (size_t)(i + j) < len)
 				++j;
 			if (to_find[j] == '\0')
 				return ((char *)&s[i]);

@@ -6,31 +6,11 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:54:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/26 16:57:32 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:12:09 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static	t_flags		check_bonus_flags(const char **format)
-{
-	t_flags flag;
-
-	while (!check_var(**format) && **format != '\0')
-	{
-		if (**format == '#')
-			flag.hash = 1;
-		else if (**format == ' ')
-			flag.space = 1;
-		else if (**format == '+')
-			flag.plus = 1 ;
-		else
-			break ;
-		(*format)++;
-	}
-	(*format)--;
-	return (flag);
-}
 
 static	t_flags		check_format(const char **format, va_list args)
 {
@@ -44,8 +24,6 @@ static	t_flags		check_format(const char **format, va_list args)
 			flag.minus = 1;
 		else if (**format == '0') //preenche com zeros consoante o width
 			flag.zero = 1;
-		else if (**format == '#' || **format == ' ' || **format == '+')
-			check_bonus_flags(format);
 		else if (**format == '*' || ft_isdigit(**format)) // especifica o num minimo de caracters que vao sair do output
 			flag.width = get_width(&(*format), args);	//pode ser definido pela *, ou por colocar digit no format
 		else if (**format == '.') // especifica maximo de caracters num arg que vai sair do output
@@ -106,11 +84,11 @@ int					ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
+/*
 int main (void)
 {
-	printf(" %#x \n", 1);
-	ft_printf(" %#x ", 1);
+	printf(" % d \n", 0);
+	ft_printf(" % d ", 0);
 
 	return (0);
-}
+}*/
