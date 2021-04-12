@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
+#    dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/01 16:17:12 by alopes            #+#    #+#              #
-#    Updated: 2021/04/08 16:53:02 by alopes           ###   ########.fr        #
+#    Updated: 2021/04/12 13:01:56 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,12 @@ RUN apt-get update && \
     apt-get -y install wget -y \
     nginx \
     mariadb-server \
-    php-mysql php-fpm php-pdo php-gd php-cli php-mbstring \
- && rm -rf /var/lib/apt/lists/*
+    php-mysql php-fpm php-pdo php-gd php-cli php-mbstring 
+ #&& rm -rf /var/lib/apt/lists/*
 
 COPY ./ srcs ./
-COPY srcs/nginx.conf ./
-COPY srcs/config.inc.php ./
-COPY srcs/wp-config.php ./
 COPY srcs/*.sh ./
 
 EXPOSE 80 443
 
-CMD bash init.sh
+CMD bash init.sh 
