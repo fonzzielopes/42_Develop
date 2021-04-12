@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:56:55 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/29 12:58:00 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/29 16:36:23 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ int					print_unbr(unsigned nbr, t_flags flag);
 int					print_hexnbr(unsigned int nbr, t_flags flag);
 int					get_width(const char **format, va_list args);
 int					get_precision(const char **format, va_list args);
-
 
 #endif

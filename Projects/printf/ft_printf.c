@@ -6,27 +6,27 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:54:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/31 12:12:09 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:02:57 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	t_flags		check_format(const char **format, va_list args)
+static	t_flags	check_format(const char **format, va_list args)
 {
-	t_flags flag;
+	t_flags	flag;
 
 	flag = ft_init_flags();
 	(*format)++;
 	while (!check_var(**format) && **format != '\0')
 	{
-		if (**format == '-') //regra para colocar à esquerda
+		if (**format == '-')
 			flag.minus = 1;
-		else if (**format == '0') //preenche com zeros consoante o width
+		else if (**format == '0')
 			flag.zero = 1;
-		else if (**format == '*' || ft_isdigit(**format)) // especifica o num minimo de caracters que vao sair do output
-			flag.width = get_width(&(*format), args);	//pode ser definido pela *, ou por colocar digit no format
-		else if (**format == '.') // especifica maximo de caracters num arg que vai sair do output
+		else if (**format == '*' || ft_isdigit(**format))
+			flag.width = get_width(&(*format), args);
+		else if (**format == '.')
 		{
 			flag.dot = 1;
 			flag.precision = get_precision(&(*format), args);
@@ -39,7 +39,7 @@ static	t_flags		check_format(const char **format, va_list args)
 	return (flag);
 }
 
-static int			convert_flag(va_list args, t_flags flag)
+static int		convert_flag(va_list args, t_flags flag)
 {
 	if (flag.type == 'c')
 		return (print_char(va_arg(args, int), flag));
@@ -58,7 +58,7 @@ static int			convert_flag(va_list args, t_flags flag)
 	return (0);
 }
 
-int					ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
@@ -74,7 +74,7 @@ int					ft_printf(const char *format, ...)
 		if (*format == '%')
 			count += convert_flag(args, check_format(&format, args));
 		else
-			count += print_char(*format, ft_init_flags()); // apenas imprime char a char, nao precisa de flags(por isso sao iniciadas a 0)
+			count += print_char(*format, ft_init_flags());
 		if (count < temp)
 			count = -1;
 		if (count < 0 || *format == '\0')
@@ -84,11 +84,3 @@ int					ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-/*
-int main (void)
-{
-	printf(" % d \n", 0);
-	ft_printf(" % d ", 0);
-
-	return (0);
-}*/

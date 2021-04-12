@@ -6,7 +6,7 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 12:54:58 by alopes            #+#    #+#              #
-#    Updated: 2021/03/26 16:02:27 by alopes           ###   ########.fr        #
+#    Updated: 2021/03/31 12:02:36 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,12 @@ LIBFT = $(LIBFTDIR)libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDEDIR) -c
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $?
-
-bonus: re
 
 %.o: %.c $(HEADERS) $(LIBFT)
 	$(CC) $(CFLAGS) $< -o $@

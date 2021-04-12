@@ -6,19 +6,18 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:33:42 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/29 14:35:26 by alopes           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:03:07 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_flags		get_flags(t_flags flag, int *prec, int nbr)
+static t_flags	get_flags(t_flags flag, int *prec, int nbr)
 {
 	if (((flag.dot && *prec >= 0) || flag.width < 0 || flag.minus) && flag.zero)
-		flag.zero = 0; // todos os casos para que a flag.zero seja ignorada
+		flag.zero = 0;
 	if (flag.zero)
-	{ /* ter atençao que flag.zero e ter padding é diferente, pois na flag é necessario contabilizar
-		a width, pois tem de continuar a ser impressa, daí termos que equilizar a nossa prec com width */
+	{
 		*prec = flag.width;
 		if (nbr < 0)
 			(*prec)--;
@@ -35,10 +34,10 @@ int				print_nbr(int nbr, t_flags flag)
 
 	prec = flag.precision;
 	flag = get_flags(flag, &prec, nbr);
-	if (flag.dot && prec == 0 && nbr == 0 && flag.zero == 0) // todos os casos para devolver nada
+	if (flag.dot && prec == 0 && nbr == 0 && flag.zero == 0)
 		arr = ft_strdup("");
 	else
-		arr = ft_itoa_base(nbr, prec); // igual ao ptr, converte em str e adiciona o padding de 0's
+		arr = ft_itoa_base(nbr, prec);
 	if (arr == NULL)
 		return (-1);
 	count = print_str(arr, flag);
@@ -57,7 +56,7 @@ int				print_unbr(unsigned nbr, t_flags flag)
 	if (flag.dot && prec == 0 && nbr == 0 && flag.zero == 0)
 		arr = ft_strdup("");
 	else
-		arr = ft_utoa_base(nbr, 10, prec); // base 10 pois vamos ler como um unsigned int de base decimal
+		arr = ft_utoa_base(nbr, 10, prec);
 	if (arr == NULL)
 		return (-1);
 	count = print_str(arr, flag);
@@ -65,12 +64,12 @@ int				print_unbr(unsigned nbr, t_flags flag)
 	return (count);
 }
 
-int			print_hexnbr(unsigned nbr, t_flags flag)
+int				print_hexnbr(unsigned nbr, t_flags flag)
 {
-	char *arr;
-	int count;
-	int prec;
-	int i;
+	char	*arr;
+	int		count;
+	int		prec;
+	int		i;
 
 	prec = flag.precision;
 	flag = get_flags(flag, &prec, 0);
