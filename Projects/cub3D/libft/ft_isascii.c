@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/09 18:06:17 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/18 13:08:13 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strchr(const char *str, int c)
+int	ft_isascii(int c)
 {
-	while (*str)
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
-	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

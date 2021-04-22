@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/02 23:12:30 by alopes-           #+#    #+#             */
+/*   Updated: 2021/03/31 13:17:14 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	while (*str)
+	char	*ptr;
+
+	ptr = (char *)str;
+	while (n--)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		*ptr++ = c;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	return (str);
 }

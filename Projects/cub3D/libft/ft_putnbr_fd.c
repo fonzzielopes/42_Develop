@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/19 17:47:05 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/19 18:16:08 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (*str)
+	if (n == -2147483648)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd('8', fd);
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
+	}
+	else
+	{
+		if (n > 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		ft_putchar_fd(48 + n % 10, fd);
+	}
 }

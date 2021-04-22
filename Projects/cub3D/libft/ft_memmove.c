@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/03 20:13:44 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/21 18:15:32 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	while (*str)
+	char	*pdst;
+	char	*psrc;
+	int		operation;
+	int		begin;
+
+	begin = 0;
+	pdst = (char *)dst;
+	psrc = (char *)src;
+	if (n == 0 || dst == src)
+		return (dst);
+	if (src > dst)
+		operation = 1;
+	else
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		begin = n - 1;
+		operation = -1;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	while (n--)
+	{
+		*(pdst + begin) = *(psrc + begin);
+		begin += operation;
+	}
+	return (dst);
 }

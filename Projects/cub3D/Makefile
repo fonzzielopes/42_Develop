@@ -6,41 +6,43 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 12:54:58 by alopes            #+#    #+#              #
-#    Updated: 2021/04/21 20:58:58 by alopes           ###   ########.fr        #
+#    Updated: 2021/04/22 13:01:27 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = cub3D
 
-SRC = ft_printf.c ft_printf_utils.c ft_print_cases.c ft_print_nbr.c
+SRC = srcs/main.c
+
 OBJ = $(SRC:.c=.o)
-INCLUDEDIR = ./
-HEADERS = $(INCLUDEDIR)ft_printf.h
-LIBFTDIR = ./libft/
-LIBFT = $(LIBFTDIR)libft.a
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDEDIR) -c
 
-.PHONY: all clean fclean re
+INCLUDE_DIRS = inc
+INCLUDES = $(addprefix -I, $(INCLUDE_DIRS))
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+MLX = -lmlx -lm -framework OpenGL -framework Appkit
 
 all: $(NAME)
 
+%.o : %.c
+	$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
+
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $?
-
-%.o: %.c $(HEADERS) $(LIBFT)
-	$(CC) $(CFLAGS) $< -o $@
-
-$(LIBFT):
-	make -C $(LIBFTDIR)
-	cp $(LIBFT) ./$(NAME)
+		@$(MAKE) -C ./minilibx
+		@$(MAKE) -C ./libft
+		$(CC) $(CFLAGS) -Lminilibx $(MLX) -Llibft -lft -Ilibft -Iminilibx
+		cp ./minilibx/libmlx.a .
 
 clean:
-	@make clean -C $(LIBFTDIR)
-	@/bin/rm -f $(OBJ)
+		$(MAKE) clean -C ./libft
 
 fclean: clean
-	@make fclean -C $(LIBFTDIR)
-	@/bin/rm -f $(NAME)
+		rm -rf $(NAME)
+		$(MAKE) fclean -C ./libft
+		$(MAKE) clean -C ./minilibx
+		rm -rf libmlx.a
 
 re: fclean all
+
+.PHONY: all clean fclean re

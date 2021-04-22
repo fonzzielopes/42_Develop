@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/01/27 12:58:44 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/18 13:29:01 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	while (*str)
+	size_t	i;
+	size_t	j;
+	size_t	res;
+
+	i = 0;
+	while (dst[i] != '\0')
+		++i;
+	res = 0;
+	while (src[res] != '\0')
+		++res;
+	if (size <= i)
+		res += size;
+	else
+		res += i;
+	j = 0;
+	while (src[j] != '\0' && i + 1 < size)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	dst[i] = '\0';
+	return (res);
 }

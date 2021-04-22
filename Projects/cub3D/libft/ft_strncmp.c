@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/01/26 23:24:16 by alopes-           #+#    #+#             */
+/*   Updated: 2021/03/31 13:15:06 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*str)
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	if (n == 0)
+		return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

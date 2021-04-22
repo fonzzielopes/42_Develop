@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/22 14:35:50 by alopes            #+#    #+#             */
+/*   Updated: 2021/02/23 16:39:42 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	while (*str)
+	if (!lst || !new)
+		return ;
+	if (lst)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		new->next = *lst;
+		*lst = new;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
 }

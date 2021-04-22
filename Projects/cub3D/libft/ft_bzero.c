@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/02 23:54:30 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/23 15:54:11 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+void	ft_bzero(void *str, size_t n)
 {
-	while (*str)
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
-	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)str;
+	while (n--)
+		*ptr++ = 0;
 }

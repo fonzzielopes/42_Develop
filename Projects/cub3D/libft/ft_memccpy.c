@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/03 15:26:21 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/19 18:18:09 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	while (*str)
+	size_t			i;
+	unsigned char	*pdst;
+	unsigned char	*psrc;
+
+	i = 0;
+	pdst = (unsigned char *)dst;
+	psrc = (unsigned char *)src;
+	while (n--)
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		pdst[i] = psrc[i];
+		if (psrc[i] == (unsigned char)c)
+			return ((unsigned char *)dst + i + 1);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)str);
 	return (NULL);
 }

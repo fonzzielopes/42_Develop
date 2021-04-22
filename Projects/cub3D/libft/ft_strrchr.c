@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/02/05 14:27:08 by alopes-           #+#    #+#             */
+/*   Updated: 2021/03/31 13:15:47 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
+	char	*ptr;
+
+	ptr = NULL;
 	while (*str)
 	{
 		if (*str == (char)c)
-			return ((char *)str);
+			ptr = (char *)str;
 		++str;
 	}
+	if (ptr)
+		return (ptr);
 	if (c == '\0')
 		return ((char *)str);
-	return (NULL);
+	return (0);
 }

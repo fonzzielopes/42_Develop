@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 22:42:47 by alopes-           #+#    #+#             */
-/*   Updated: 2021/04/20 14:17:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/01/28 17:45:17 by alopes-           #+#    #+#             */
+/*   Updated: 2021/02/23 16:33:19 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strdup(char *src)
 {
-	while (*str)
+	char	*ptr;
+	int		i;
+	int		size;
+
+	size = 0;
+	while (src[size])
+		++size;
+	ptr = malloc(sizeof(char) * (size + 1));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		++str;
+		ptr[i] = src[i];
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (NULL);
+	ptr[i] = src[i];
+	return (ptr);
 }
