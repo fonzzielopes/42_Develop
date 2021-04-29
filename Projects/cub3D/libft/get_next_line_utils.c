@@ -6,15 +6,15 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:04:16 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/02 16:00:25 by alopes           ###   ########.fr       */
+/*   Updated: 2021/04/22 14:21:13 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen(const char *src)
+size_t	ft_strlen(const char *src)
 {
-	size_t size;
+	size_t	size;
 
 	size = 0;
 	while (src[size])
@@ -24,7 +24,7 @@ size_t		ft_strlen(const char *src)
 	return (size);
 }
 
-char		*ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	char	*ptr;
 	int		i;
@@ -46,7 +46,7 @@ char		*ft_strdup(char *src)
 	return (ptr);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -68,20 +68,20 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char		*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	while (*str)
 	{
 		if (*str == (char)c)
-			return ((char*)str);
+			return ((char *)str);
 		++str;
 	}
 	if (c == '\0')
-		return ((char*)str);
+		return ((char *)str);
 	return (NULL);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;
 	size_t	i;
@@ -97,11 +97,13 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	if (start < ft_strlen(s))
+	{
 		while (s[start + i] && i < len)
 		{
 			ptr[i] = s[start + i];
 			i++;
 		}
+	}
 	ptr[i] = '\0';
 	return (ptr);
 }

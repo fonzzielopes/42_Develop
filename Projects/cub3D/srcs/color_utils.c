@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   color_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 15:24:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/04/29 13:10:27 by alopes           ###   ########.fr       */
+/*   Created: 2021/04/29 14:13:27 by alopes            #+#    #+#             */
+/*   Updated: 2021/04/29 14:14:04 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include <stdio.h>
-# include <math.h>
-# include "../libft/libft.h"
-# include "../inc/key_macos.h"
-# include "../inc/structs.h"
-# include "../libft/get_next_line.h"
-# include "../minilibx/mlx.h"
+#include "cub3d.h"
 
-#define X_EVENT_KEY_PRESS		2
-#define X_EVENT_KEY_release		3
-#define X_EVENT_KEY_EXIT		17 //exit key code
+int		create_trgb(int t, int r, int g, int b)
+{
+	return(t << 24 | r << 16 | g << 8 | b);
+}
 
-#define KEY_ESC			53
+int		get_t(int trgb)
+{
+	return (trgb & (0xFF << 24));
+}
 
+int		get_r(int trgb)
+{
+	return (trgb & (0xFF << 16));
+}
 
-int			main(void);
+int		get_g(int trgb)
+{
+	return (trgb & (0xFF << 8));
+}
 
-#endif
+int		get_b(int trgb)
+{
+	return (trgb & 0xFF);
+}

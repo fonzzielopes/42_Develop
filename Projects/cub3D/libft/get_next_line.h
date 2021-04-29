@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:04:20 by alopes            #+#    #+#             */
-/*   Updated: 2021/03/02 16:24:06 by alopes           ###   ########.fr       */
+/*   Updated: 2021/04/22 14:17:50 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # define BUFF_SIZE 1
-
 
 int			get_next_line(int fd, char **line);
 char		*ft_strchr(const char *str, int c);
