@@ -1,1 +1,0 @@
-gcc -Wall -Wextra -Werror -I minilibx -L minilibx -lmlx -framework OpenGL -framework AppKit srcs/main.c && ./a.out
