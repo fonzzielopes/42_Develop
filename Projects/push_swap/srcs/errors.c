@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/09 12:58:02 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/09 12:36:46 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int main (int argc, char** argv)
+int	check_isdigit (char *str)
 {
-	t_stack_overflow *stack_a;
+	int i;
 
-	stack_a = 0;
-
-	if (argc != 1)
-		stack_a = check_input_value(*argv[1], argc);
-
-	return (0);
+	i = 0;
+	if (str[i] == '-')
+		i++;
+	while (str[i])
+	{
+		if(str[i] < '0' || str [i] >'9')
+			return (0);
+		i++;
+	}
+	return(1);
 }
+
+/*int		*check_error(char *argv, t_stack_overflow)
+{
+	int num;
+
+}*/
