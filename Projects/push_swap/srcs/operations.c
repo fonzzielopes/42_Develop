@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/11 11:42:17 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/11 11:15:37 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/11 11:44:30 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack_overflow	*init_stacks(void)
 {
-	t_stack_overflow	*stack_a;
+	t_stack_overflow	*stacks;
 
-	stack_a = 0;
-	if (argc != 1)
-		stack_a = check_input_value(&argv[1], argc);
-	return (0);
+	stacks = (t_stack_overflow *) malloc (sizeof(t_stack_overflow));
+	if (!stacks)
+		print_errors(stacks, 0);
+	stacks->stack_a = 0;
+	stacks->stack_b = 0;
+	stacks->length = 0;
+	return (stacks);
 }
