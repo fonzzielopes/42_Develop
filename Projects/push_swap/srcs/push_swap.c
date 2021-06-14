@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/11 11:42:17 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/14 15:18:55 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack_overflow	*stack_a;
+	t_stack_overflow	*stacks;
 
-	stack_a = 0;
-	if (argc != 1)
-		stack_a = check_input_value(&argv[1], argc);
+	if (argc == 1)
+		return (1);
+	if (!check_error(argv))
+	{
+		ft_putstr("Error\n");
+		exit(1);
+	}
+	stacks = init_stacks();
+	free(stacks);
 	return (0);
 }

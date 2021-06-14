@@ -6,11 +6,12 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:03:35 by alopes            #+#    #+#             */
-/*   Updated: 2021/04/22 14:23:24 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/14 15:28:21 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 
 int	archive(char **saved, char **line)
 {

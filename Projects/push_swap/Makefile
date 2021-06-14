@@ -6,7 +6,7 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/06/08 11:41:01 by alopes           ###   ########.fr        #
+#    Updated: 2021/06/14 15:41:21 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC = ./includes/
 FLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
-	gcc $(FLAGS) $< c -o $@ -I $(INC)
+	gcc $(FLAGS) $< -c -o $@ -I $(INC)
 
 all: $(OBJ)
 	@gcc $(FLAGS) $(OBJ) -o $(INC)

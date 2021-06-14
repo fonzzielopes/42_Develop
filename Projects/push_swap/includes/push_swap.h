@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:43:17 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/11 11:47:37 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/14 15:17:55 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack_overflow
 	long			length;
 }				t_stack_overflow;
 
-long		*check_error(char *argv, t_stack_overflow *stacks);
+long					*check_error(char **argv);
+t_stack_overflow		*init_stacks(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/11 11:46:42 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/14 15:14:15 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,43 +37,35 @@ int	check_maxmin(long num)
 	return (1);
 }
 
-/*int	check_doubles(t_stack_overflow *stacks, long a)
+/*int	check_doubles(char c, char *str)
 {
-	t_stack_overflow *stacks;
-	long b;
-
-	if (!stacks)
+	if (!str)
 		return (0);
-	if (stacks->length < 2)
-		return (0);
+	while (*str)
+		if(c == *str++)
+			return (1);
+	return (0);
 }*/
 
-long	*check_error(char *argv, t_stack_overflow *stacks)
+long	*check_error(char **argv)
 {
 	long	*num;
 
-	if (!check_isdigit(argv))
+	if (!check_isdigit(*argv))
 		return (0);
 	num = (long *)malloc(sizeof(long));
 	if (!num)
 		return (0);
-	*num = ft_atoi(argv);
+	*num = ft_atoi(*argv);
 	if (!check_maxmin(*num))
 	{
 		free(num);
 		return (0);
 	}
-	if (!check_doubles(stacks, *num))
+	/*if (!check_doubles(argv, *num))
 	{
 		free (num);
 		return (0);
-	}
+	}*/
 	return (num);
-}
-
-void	print_error(t_stack_overflow *stacks, char *str)
-{
-	ft_putstr("Error\n");
-	free (stacks);
-	exit(1);
 }
