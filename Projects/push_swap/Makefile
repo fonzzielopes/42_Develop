@@ -6,32 +6,35 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/06/14 16:32:42 by alopes           ###   ########.fr        #
+#    Updated: 2021/06/16 17:48:51 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = $(wildcard srcs/*.c) \
-		$(wildcard libft/*.c)
+SRC = srcs/errors.c \
+		srcs/operations.c \
+		srcs/push_swap.c
 
-OBJ = $(SRC:.c=.o)
-INCLUDEDIR = ./
-HEADERS = $(INCLUDEDIR)push_swap.h
+##OBJ = $(SRC:.c=.o)
+
+LIBFT = libft/libft.a
+INC = -Iincludes -Llibft -lft
 FLAGS = -Wall -Wextra -Werror
 
-%.o: %.c
-	gcc $(FLAGS) $< -c -o $@ -I $(HEADERS)
+$(NAME): $(OBJS)
+	$(MAKE) -C ./libft
+	gcc $(FLAGS) $(INC) $(SRC) -o $(NAME)
 
-all: $(OBJ)
-	@gcc $(FLAGS) $(OBJ) -o $(NAME)
+all: $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
+	$(MAKE) clean -C ./libft
 
-fclean:
-	rm -f $(OBJ)
+fclean: clean
 	rm -f $(NAME)
+	$(MAKE) fclean -C ./libft
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:02:22 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/14 16:03:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/16 17:33:44 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,17 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
-# include "../libft/get_next_line.h"
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
-typedef struct s_data
-{
-	int				value;
-	struct s_data	*next;
-	struct s_data	*prev;
-
-}				t_data;
-
 typedef struct s_stack_overflow
 {
-	t_data			*stack_a;
-	t_data			*stack_b;
-	long			length;
+	int						value;
+	struct s_stack_overflow	*next;
+	struct s_stack_overflow	*prev;
 }				t_stack_overflow;
 
 long					*check_error(char **argv);
-t_stack_overflow		*init_stacks(void);
+t_stack_overflow		*create_list(int argc, char **argv);
 
 #endif

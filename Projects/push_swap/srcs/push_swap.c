@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/14 15:18:55 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/16 17:49:53 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!check_error(argv))
 	{
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	stacks = init_stacks();
+	stacks = create_list(argc, argv);
 	free(stacks);
 	return (0);
 }
