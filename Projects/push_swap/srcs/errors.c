@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/16 17:35:13 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/22 12:42:37 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,39 @@ int	check_maxmin(long num)
 	return (0);
 }*/
 
-long	*check_error(char **argv)
-{
-	long	*num;
 
-	if (!check_isdigit(*argv))
-		return (0);
-	num = (long *)malloc(sizeof(long));
-	if (!num)
-		return (0);
-	*num = ft_atoi(*argv);
-	if (!check_maxmin(*num))
+int	check_error(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	int arr[1024];
+	long	*nb;
+
+	i = 1;
+	arr[0] = INT_MIN;
+	nb = (long *)malloc (sizeof(long));
+	while (i < argc)
 	{
-		free(num);
-		return (0);
-	}
+		j = 0;
+		while (argv[i][j])
+		{
+			if (!check_isdigit(&argv[i][j]))
+				return (0);
+			j++;
+		}
+		arr[i] = ft_atoi(argv[i]);
+		*nb = ft_atoi(argv[i]);
+		if (!check_maxmin(*nb))
+		{
+			free(nb);
+			return(0);
+		}
+		i++;
 	/*if (!check_doubles(argv, *num))
 	{
 		free (num);
 		return (0);
 	}*/
-	return (num);
+	}
+	return (1);
 }
