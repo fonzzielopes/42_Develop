@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/23 12:09:15 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/23 11:40:35 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/23 11:40:57 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_is_white_space(char c)
 {
-	t_stack_overflow	*stacks;
-
-	if (!check_error(argc, argv))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	stacks = create_list(argc, argv);
-	free(stacks);
+	if (c == '\t' || c == '\v' || c == '\n' || c == '\r' ||
+	c == '\f' || c == ' ')
+		return (1);
 	return (0);
 }

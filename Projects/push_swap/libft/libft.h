@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:08:59 by alopes-           #+#    #+#             */
-/*   Updated: 2021/06/14 15:23:35 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/23 11:43:23 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isascii(int c);
-int					ft_isspace(int c);
+int					ft_iswhitespace(int c);
 int					ft_isprint(int c);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -43,6 +43,7 @@ char				*ft_strdup(char *src);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *src);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *s, const char *to_find, size_t len);
 char				*ft_strrchr(const char *str, int c);
