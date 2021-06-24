@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:02:22 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/24 12:29:51 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:51:58 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
-
 
 typedef struct s_stack_overflow
 {

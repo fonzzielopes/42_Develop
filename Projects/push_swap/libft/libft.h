@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:08:59 by alopes-           #+#    #+#             */
-/*   Updated: 2021/06/24 12:34:47 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:53:00 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
 
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);

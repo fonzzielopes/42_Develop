@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/24 12:49:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:55:03 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ int	check_isdup(char *str[])
 	return (0);
 }
 
-
 int	check_error(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	long temp;
+	int		i;
+	int		j;
+	long	temp;
 
 	i = 1;
-	temp = 0;
 	if (argc == 1)
+		return (0);
+	if (check_isdup(argv))
 		return (0);
 	while (i < argc)
 	{
@@ -68,12 +68,9 @@ int	check_error(int argc, char **argv)
 				return (0);
 			j++;
 		}
-		if (check_isdup(argv))
-			return (0);
 		temp = ft_atol(argv[i]);
 		if (ft_strlen(argv[i]) > 11
-				|| temp > 2147483647
-				|| temp < -2147483648)
+			|| temp > 2147483647 || temp < -2147483648)
 			return (0);
 		i++;
 	}
