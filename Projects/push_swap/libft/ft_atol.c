@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 11:25:59 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/24 12:18:04 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/24 11:54:05 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/24 11:59:32 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+long	ft_atol(const char *str)
 {
-	size_t	index;
+	long	result;
+	long	index;
+	long	sign;
 
-	index = 0;
-	if (s1 == NULL || s2 == NULL)
-	{
+	if (str == NULL)
 		return (0);
-	}
-	while (s1[index] != '\0' || s2[index] != '\0')
+	result = 0;
+	index = 0;
+	sign = 1;
+	while (str[index] == ' ')
+		index++;
+	if (str[index] == '+')
+		index++;
+	else if (str[index] == '-')
 	{
-		if (s1[index] != s2[index])
-			return (0);
+		index++;
+		sign *= -1;
+	}
+	while (str[index] != '\0' && (str[index] >= '0' && str[index] <= '9'))
+	{
+		result = (result * 10) + (str[index] - '0');
 		index++;
 	}
-	return (1);
+	return (result * sign);
 }

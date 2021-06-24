@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:08:59 by alopes-           #+#    #+#             */
-/*   Updated: 2021/06/23 11:43:23 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:34:47 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -22,7 +23,9 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 void				ft_bzero(void *str, size_t n);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalpha(int c);
@@ -43,7 +46,7 @@ char				*ft_strdup(char *src);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *src);
-int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strcmp(char *s1, char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *s, const char *to_find, size_t len);
 char				*ft_strrchr(const char *str, int c);

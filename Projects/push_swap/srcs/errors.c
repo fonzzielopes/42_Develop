@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/23 12:34:26 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:49:01 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_isdigit (char *str)
 	return (1);
 }
 
-int	check_dup(char *str[])
+int	check_isdup(char *str[])
 {
 	int		i;
 	int		j;
@@ -39,44 +39,42 @@ int	check_dup(char *str[])
 		j = i + 1;
 		while (str[j])
 		{
-			if (ft_strcmp(str[i], str[j]))
-				return (0);
+			if (ft_strcmp(str[i], str[j]) == 1)
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
+
 
 int	check_error(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int arr[1024];
-	//long	*nb;
-	//int temp;
+	long temp;
 
 	i = 1;
-	arr[0] = INT_MIN;
-	//nb = (long *)malloc (sizeof(long));
+	temp = 0;
 	if (argc == 1)
 		return (0);
 	while (i < argc)
 	{
 		j = 0;
-		/*temp = ft_atoi(argv);
-		if ((!temp) || (temp > 2147483647) || (temp < -2147483648))
-            return (0);
-		if (!check_maxmin(temp))
-			return (0);*/
 		while (argv[i][j])
 		{
-			if (!check_isdigit(&argv[i][j]) || !check_dup(*argv[i]))
+			if (!check_isdigit(&argv[i][j]))
 				return (0);
 			j++;
 		}
-		arr[i] = ft_atoi(argv[i]);
-		//*nb = ft_atoi(argv[i]);
+		if (check_isdup(argv))
+			return (0);
+		temp = ft_atol(argv[i]);
+		if (ft_strlen(argv[i]) > 11
+				|| temp > 2147483647
+				|| temp < -2147483648)
+			return (0);
 		i++;
 	}
 	return (1);
