@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:02:22 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/24 12:51:58 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/25 11:31:30 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ typedef struct s_stack_overflow
 
 int						check_error(int argc, char *argv[]);
 t_stack_overflow		*create_list(int argc, char **argv);
+t_stack_overflow 		*sort(t_stack_overflow *stacks);
+size_t					stack_size(t_stack_overflow *stacks);
 
 #endif

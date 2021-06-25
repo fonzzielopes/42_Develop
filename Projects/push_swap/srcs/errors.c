@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/24 12:55:03 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/25 12:35:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_isdup(char *str[])
 		j = i + 1;
 		while (str[j])
 		{
-			if (ft_strcmp(str[i], str[j]) == 1)
+			if (ft_strcmp(str[i], str[j]))
 				return (1);
 			j++;
 		}

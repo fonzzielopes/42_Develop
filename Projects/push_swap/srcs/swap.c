@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 11:25:59 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/25 12:35:58 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/25 10:40:48 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/25 11:34:34 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	swap_stack(t_stack_overflow *stacks)
 {
-	size_t	index;
+	int	temp;
 
-	index = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	while (s1[index] != '\0' || s2[index] != '\0')
+	if (stack_size(stacks) > 1)
 	{
-		if (s1[index] != s2[index])
-			return (0);
-		index++;
+		temp = (stacks)->next->value;
+		(stacks)->next->value = (stacks)->value;
+		(stacks)->value = temp;
 	}
-	return (1);
 }

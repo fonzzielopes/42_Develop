@@ -6,14 +6,15 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/06/16 17:48:51 by alopes           ###   ########.fr        #
+#    Updated: 2021/06/25 10:35:12 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRC = srcs/errors.c \
-		srcs/operations.c \
+		srcs/collect_create.c \
+		srcs/lets_sort.c \
 		srcs/push_swap.c
 
 ##OBJ = $(SRC:.c=.o)
