@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 18:10:52 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/28 15:32:18 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/28 17:57:19 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack_overflow	*rotate_stack(t_stack_overflow *stacks)
 {
-	t_stack_overflow	*stacks;
+	t_stack_overflow *temp;
 
-	if (!check_error(argc, argv))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	stacks = create_list(argc, argv);
-	stacks = sort(stacks, STACK_A);
-	free(stacks);
-	return (0);
+	if (stack_size(stacks) <=1)
+		return (stacks);
+	temp = last_el(stacks);
+	temp->prev->next = NULL;
+	temp->prev = stacks->next;
+	if (temp->prev)
+		temp->prev->next = temp;
+	temp->next = stacks;
+	stacks->prev = temp;
+	stacks = temp;
+	return (stacks);
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 18:10:52 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/28 16:31:39 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/28 17:37:28 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack_overflow	*sort_2(t_stack_overflow *stacks, int pile_a_b)
 {
-	t_stack_overflow	*stacks;
+	t_stack_overflow	*i;
+	t_stack_overflow	*j;
 
-	if (!check_error(argc, argv))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	stacks = create_list(argc, argv);
-	stacks = sort(stacks, STACK_A);
-	free(stacks);
-	return (0);
+	if (check_sorted(stacks))
+		return (stacks);
+	j = last_el(stacks);
+	i = j->prev;
+	if (j->value > i->value)
+		stacks = stack_command(stacks, pile_a_b);
+	return (stacks);
 }

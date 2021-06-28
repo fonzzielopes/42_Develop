@@ -6,18 +6,23 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/06/25 10:35:12 by alopes           ###   ########.fr        #
+#    Updated: 2021/06/28 18:02:54 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = srcs/errors.c \
-		srcs/collect_create.c \
+SRC = srcs/push_swap.c \
+		srcs/errors.c \
 		srcs/lets_sort.c \
-		srcs/push_swap.c
+		srcs/collect_create.c \
+		srcs/push.c \
+		srcs/swap.c \
+		srcs/rotate.c \
+		srcs/sort_2.c \
+		srcs/stack_op.c
 
-##OBJ = $(SRC:.c=.o)
+#OBJ = $(SRC:.c=.o)
 
 LIBFT = libft/libft.a
 INC = -Iincludes -Llibft -lft
