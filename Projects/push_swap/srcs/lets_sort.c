@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:10:18 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 17:08:04 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/29 17:39:14 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	stack_size(t_stack_overflow *stacks)
 	return (i);
 }
 
-int  check_sorted(t_stack_overflow *stacks)
+int	check_sorted(t_stack_overflow *stacks)
 {
 	t_stack_overflow	*current;
 
@@ -43,7 +43,7 @@ int  check_sorted(t_stack_overflow *stacks)
 	return (1);
 }
 
-t_stack_overflow *sort(t_stack_overflow *stacks, int pile_a_b)
+t_stack_overflow	*sort(t_stack_overflow *stacks, int pile_a_b)
 {
 	int	size;
 

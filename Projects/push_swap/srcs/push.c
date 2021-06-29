@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:04:57 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 17:55:32 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/29 17:40:06 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,18 @@ t_stack_overflow	*first_el(t_stack_overflow *stacks)
 
 t_stack_overflow	*last_el(t_stack_overflow *stacks)
 {
-	t_stack_overflow *current;
+	t_stack_overflow	*current;
 
-	if(!stacks)
+	if (!stacks)
 		return (NULL);
 	while (stacks->next)
 		current = current->next;
 	return (current);
 }
 
-
 void	push_stack(t_stack_overflow **send, t_stack_overflow **rec)
 {
-	t_stack_overflow *temp;
+	t_stack_overflow	*temp;
 
 	if (stack_size(*rec) < 1)
 		return ;

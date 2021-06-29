@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:31:39 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 17:37:28 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:54:15 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_stack_overflow	*sort_2(t_stack_overflow *stacks, int pile_a_b)
 	j = last_el(stacks);
 	i = j->prev;
 	if (j->value > i->value)
-		stacks = stack_command(stacks, pile_a_b);
+		stacks = stack_command(SWAP, stacks, pile_a_b);
 	return (stacks);
 }

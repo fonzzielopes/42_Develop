@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/28 18:21:38 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/29 17:38:40 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	check_isdup(char *str[])
 {
 	int		i;
 	int		j;
-	int		temp;
 
 	i = 1;
 	while (str[i])
@@ -40,10 +39,7 @@ int	check_isdup(char *str[])
 		j = i + 1;
 		while (str[j])
 		{
-			temp = ft_atol(str[j]);
 			if (ft_strcmp(str[i], str[j]))
-				return (1);
-			if (temp == '0')
 				return (1);
 			j++;
 		}
