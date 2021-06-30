@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:40:48 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/29 15:58:51 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/30 16:50:53 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 t_stack_overflow	*swap_stack(t_stack_overflow *stacks)
 {
-	int	temp;
+	t_stack_overflow	*current;
+	int		temp;
 
-	if (stack_size(stacks) > 1)
+	if (stack_size(stacks) <= 1)
 	{
-		temp = (stacks)->next->value;
-		(stacks)->next->value = (stacks)->value;
-		(stacks)->value = temp;
+		return (stacks);
 	}
+	current = last_el(stacks);
+	temp = current->value;
+	current->value = current->prev->value;
+	current->prev->value = temp;
 	return (stacks);
 }

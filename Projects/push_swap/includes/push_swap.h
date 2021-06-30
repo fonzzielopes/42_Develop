@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:02:22 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/29 17:42:35 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/30 17:21:02 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int						check_sorted(t_stack_overflow *stacks);
 t_stack_overflow		*first_el(t_stack_overflow *stacks);
 t_stack_overflow		*last_el(t_stack_overflow *stacks);
 t_stack_overflow		*sort_2(t_stack_overflow *stack, int pile_a_b);
-t_stack_overflow		*stack_command(int rule, t_stack_overflow *stacks,
-							int pile_a_b);
+t_stack_overflow		*sort_3(t_stack_overflow *stack, int pile_a_b);
+t_stack_overflow		*stack_command(int rule, int pile_a_b,
+							t_stack_overflow *stacks);
 
 void					push_stack(t_stack_overflow **send,
 							t_stack_overflow **rec);

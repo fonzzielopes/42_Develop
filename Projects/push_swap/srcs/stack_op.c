@@ -6,14 +6,14 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 17:45:41 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/29 17:41:38 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/30 18:37:36 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack_overflow	*stack_command(int rule, t_stack_overflow *stacks,
-		int pile_a_b)
+t_stack_overflow	*stack_command(int rule, int pile_a_b,
+		t_stack_overflow *stacks)
 {
 	if (rule == SWAP)
 	{
@@ -23,7 +23,7 @@ t_stack_overflow	*stack_command(int rule, t_stack_overflow *stacks,
 		if (pile_a_b == STACK_B)
 			write(1, "sb\n", 3);
 	}
-	if (rule == ROTATE)
+	else if (rule == ROTATE)
 	{
 		stacks = rotate_stack(stacks);
 		if (pile_a_b == STACK_A)
@@ -31,7 +31,7 @@ t_stack_overflow	*stack_command(int rule, t_stack_overflow *stacks,
 		if (pile_a_b == STACK_B)
 			write(1, "rb\n", 3);
 	}
-	if (rule == REVERSE)
+	else if (rule == REVERSE)
 	{
 		stacks = rev_rotate_stack(stacks);
 		if (pile_a_b == STACK_A)

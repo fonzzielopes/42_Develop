@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 23:24:16 by alopes-           #+#    #+#             */
-/*   Updated: 2021/06/30 17:00:12 by alopes           ###   ########.fr       */
+/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
+/*   Updated: 2021/06/30 16:58:59 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(int argc, char **argv)
 {
-	size_t	count;
+	t_stack_overflow	*stacks;
 
-	count = 0;
-	if (!n)
-		return (0);
-	while ((s1[count] == s2[count] && s1[count] && s2[count]) && n > count + 1)
-		count++;
-	return (((unsigned char *)s1)[count] - ((unsigned char *)s2)[count]);
+	if (!check_error(argc, argv))
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
+	stacks = create_list(argc, argv);
+	stacks = sort(stacks, STACK_A);
+	free(stacks);
+	return (0);
 }
