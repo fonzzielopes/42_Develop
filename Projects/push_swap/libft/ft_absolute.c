@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_absolute.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/05 11:35:14 by alopes           ###   ########.fr       */
+/*   Created: 2021/07/05 12:40:06 by alopes            #+#    #+#             */
+/*   Updated: 2021/07/05 13:03:06 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_absolute(int num)
 {
-	t_stack_overflow	*stacks;
-
-	if (!check_error(argc, argv))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	stacks = create_list(argc, argv);
-	stacks = sort(stacks, STACK_A);
-	free(stacks);
-	return (0);
+	if (num < 0)
+		num *= -1;
+	return (num);
 }

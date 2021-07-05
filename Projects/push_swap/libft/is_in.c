@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   is_in.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/05 11:35:14 by alopes           ###   ########.fr       */
+/*   Created: 2021/07/05 12:05:18 by alopes            #+#    #+#             */
+/*   Updated: 2021/07/05 12:05:19 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	is_in(int num, int *arr, int arr_size)
 {
-	t_stack_overflow	*stacks;
+	int	i;
 
-	if (!check_error(argc, argv))
+	i = 0;
+	while (i < arr_size)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
+		if (arr[i] == num)
+			return (1);
+		i++;
 	}
-	stacks = create_list(argc, argv);
-	stacks = sort(stacks, STACK_A);
-	free(stacks);
 	return (0);
 }
