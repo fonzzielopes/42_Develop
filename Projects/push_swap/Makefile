@@ -6,7 +6,7 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/07/05 13:07:40 by alopes           ###   ########.fr        #
+#    Updated: 2021/07/06 10:43:27 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,6 @@ SRC = push_swap.c \
 		srcs/rev_rotate.c \
 		srcs/sort_2.c \
 		srcs/sort_3.c \
-		srcs/parsing_sort.c \
-		srcs/small.c \
-		srcs/big.c \
-		srcs/top_below.c \
 		srcs/stack_op.c
 
 OBJ = $(SRC:.c=.o)

@@ -6,11 +6,35 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:12:56 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/05 13:06:54 by alopes           ###   ########.fr       */
+/*   Updated: 2021/07/06 11:07:39 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+size_t	get_big_num_pos(t_stack_overflow *stacks)
+{
+	t_stack_overflow	*current;
+	size_t	pos;
+	size_t	big_num_pos;
+	int		big_num;
+
+	pos = 1;
+	current = stacks;
+	big_num = current->value;
+	big_num_pos = pos;
+	while (current)
+	{
+		if (current->value > big_num)
+		{
+			big_num = current->value;
+			big_num_pos = pos;
+		}
+		current = current->next;
+		pos++;
+	}
+	return (big_num_pos);
+}
 
 t_stack_overflow	*sort_3(t_stack_overflow *stacks, int pile_a_b)
 {

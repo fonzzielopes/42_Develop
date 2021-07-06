@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 17:45:41 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/05 12:51:26 by alopes           ###   ########.fr       */
+/*   Updated: 2021/07/06 11:16:17 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,4 @@ t_stack_overflow	*stack_command(int rule, int pile_a_b,
 			write(1, "rrb\n", 4);
 	}
 	return (stacks);
-}
-
-void	run_push(int from_a_or_b, t_stack_overflow **from, t_stack_overflow **to)
-{
-	push_stack(from, to);
-	if (from_a_or_b == STACK_A)
-		write(1, "pb\n", 3);
-	else
-		write(1, "pa\n", 3);
 }
