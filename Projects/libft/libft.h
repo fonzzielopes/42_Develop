@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:08:59 by alopes-           #+#    #+#             */
-/*   Updated: 2021/06/23 11:27:32 by alopes           ###   ########.fr       */
+/*   Updated: 2021/07/05 13:03:16 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -23,6 +24,7 @@ typedef struct s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 void				ft_bzero(void *str, size_t n);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalpha(int c);
@@ -30,7 +32,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isascii(int c);
-int					ft_isspace(int c);
+int					ft_iswhitespace(int c);
 int					ft_isprint(int c);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -43,7 +45,7 @@ char				*ft_strdup(char *src);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *src);
-int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strcmp(char *s1, char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *s, const char *to_find, size_t len);
 char				*ft_strrchr(const char *str, int c);
@@ -61,6 +63,10 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_putstr(char const *s);
+void				ft_putchar(char c);
+int					is_in(int num, int *arr, int arr_size);
+int					ft_absolute(int num);
 
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);

@@ -6,71 +6,50 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:02:22 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/06 11:42:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/13 11:06:37 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdarg.h>
-# include <limits.h>
-# include "../libft/libft.h"
+# include<unistd.h>
+# include<stdlib.h>
+# include<stdio.h>
+# include<limits.h>
 
-# define STACK_A 0
-# define STACK_B 1
-
-# define TOP 0
-# define BOT 1
-
-# define PUSH 0
-# define SWAP 1
-# define ROTATE 2
-# define REVERSE 3
-
-typedef struct s_stack_overflow
+typedef struct s_list
 {
-	int						value;
-	struct s_stack_overflow	*next;
-	struct s_stack_overflow	*prev;
-}				t_stack_overflow;
+	int				index;
+	char			*binary;
+	int				len;
+	struct s_list	*next;
+}	t_list;
 
-int						check_error(int argc, char *argv[]);
-t_stack_overflow		*create_list(int argc, char **argv);
-t_stack_overflow		*sort(t_stack_overflow *stacks, int stack_a);
-size_t					stack_size(t_stack_overflow *stacks);
-int						check_sorted(t_stack_overflow *stacks);
-t_stack_overflow		*first_el(t_stack_overflow *stacks);
-t_stack_overflow		*last_el(t_stack_overflow *stacks);
-t_stack_overflow		*sort_2(t_stack_overflow *stack, int pile_a_b);
-t_stack_overflow		*sort_3(t_stack_overflow *stack, int pile_a_b);
-t_stack_overflow		*stack_command(int rule, int pile_a_b,
-							t_stack_overflow *stacks);
-
-void					push_stack(t_stack_overflow **send,
-							t_stack_overflow **rec);
-void					run_push(int from_a_or_b, t_stack_overflow **from,
-							t_stack_overflow **to);
-t_stack_overflow		*swap_stack(t_stack_overflow *stacks);
-t_stack_overflow		*rotate_stack(t_stack_overflow *stacks);
-t_stack_overflow		*rev_rotate_stack(t_stack_overflow *stacks);
-t_stack_overflow		*parsing_sort(t_stack_overflow *stack,
-							int pile_a__b, int partition);
-int						get_smallest(t_stack_overflow *stack, int *arr,
-							int partition);
-void					fill_smallest(int *arr, t_stack_overflow *stacks,
-							int partition);
-int						from_arr_closest_to_top(t_stack_overflow *stacks,
-							int *arr, int partition);
-int						get_directly_below(t_stack_overflow *stack, int num);
-t_stack_overflow		*get_num_to_top(int num, t_stack_overflow *stacks,
-							int pile_a_b);
-size_t					distance_to_top(int num, t_stack_overflow *stacks);
-int						from_arr_closest_to_top(t_stack_overflow *stacks,
-							int *arr, int partition);
-t_stack_overflow		*biggest_to_top(t_stack_overflow *stacks, int pile_a_b);
-size_t					get_big_num_pos(t_stack_overflow *stacks);
-
-
-
+long int	ft_atoi_long(const char *nptr);
+int			ft_check_repeat(int *ar, int size);
+t_list		*ft_initialize_stack(int **args, int **order, int size);
+int			ft_get_index(int num, int order[]);
+void		ft_sort_int_tab(int tab[], int size);
+t_list		*ft_new_element(int num, int order[]);
+char		*ft_to_binary(int n);
+void		ft_lstadd_front(t_list **list, t_list *new);
+void		ft_lstadd_back(t_list **list, t_list *new);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_swap(t_list **stack);
+void		ft_rotate(t_list **stack);
+void		ft_rev_rotate(t_list **stack);
+void		ft_push(t_list **start, t_list **dest);
+int			ft_is_ordered(t_list *stack);
+int			ft_max_len(t_list *stack_a);
+void		ft_radix_sort(t_list **stack_a, int maxlen, int size);
+void		ft_sort_small(t_list **stack_a, int size);
+void		ft_perform_rotation(t_list **stack_a, t_list *ptr, int mark,
+				int size);
+char		**ft_split(char const *s, char c);
+int			ft_nword(char const *s, char c);
+void		ft_free_split(char **argv);
+void		ft_free_stack(t_list **stack);
+void		ft_free_array(int *args, int *order);
+void		ft_insert_extreme(t_list **stack_a, t_list **stack_b, int *min,
+				int *max);
 #endif

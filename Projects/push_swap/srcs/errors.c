@@ -6,73 +6,55 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/07/06 11:39:05 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/13 10:46:57 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	check_isdigit (char *str)
+/* passa os arg para digitos (long para aceitar maior que int)*/
+long int	ft_atoi_long(const char *nptr)
 {
-	int	i;
+	long int	n;
+	long int	s;
 
-	i = 0;
-	if (str[i] == '-')
-		i++;
-	while (str[i])
+	n = 0;
+	s = 1;
+	if (*nptr == '+' || *nptr == '-')
 	{
-		if (str[i] < '0' || str [i] > '9')
-			return (0);
-		i++;
+		if (*nptr == '-')
+			s = -1;
+		nptr++;
 	}
-	return (1);
+	if (*nptr > '9' || *nptr < '0')
+		return (2147483648);
+	while (*nptr <= '9' && *nptr >= '0')
+	{
+		n = n * 10 + *nptr - '0';
+		nptr++;
+	}
+	if (*nptr != 0)
+		return (2147483648);
+	return (n * s);
 }
 
-int	check_isdup(char *str[])
+/* verifica repeticao de arg.*/
+int	ft_check_repeat(int *ar, int size)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
-	i = 1;
-	while (str[i])
+	i = 0;
+	while (i < size - 1)
 	{
 		j = i + 1;
-		while (str[j])
+		while (j < size)
 		{
-			if (ft_strcmp(str[i], str[j]))
+			if (ar[j] == ar[i])
 				return (1);
 			j++;
 		}
 		i++;
 	}
 	return (0);
-}
-
-int	check_error(int argc, char **argv)
-{
-	int		i;
-	int		j;
-	long	temp;
-
-	i = 1;
-	if (argc == 1)
-		return (0);
-	if (check_isdup(argv))
-		return (0);
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!check_isdigit(&argv[i][j]))
-				return (0);
-			j++;
-		}
-		temp = ft_atol(argv[i]);
-		if (ft_strlen(argv[i]) > 11
-			|| temp > 2147483647 || temp < -2147483648)
-			return (0);
-		i++;
-	}
-	return (1);
 }

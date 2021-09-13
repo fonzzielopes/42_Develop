@@ -6,22 +6,24 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:25:59 by alopes            #+#    #+#             */
-/*   Updated: 2021/06/23 11:26:45 by alopes           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:18:21 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int				i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	size_t	index;
 
-	i = 0;
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
-	while (str1[i] == str2[i] && str1[i] && str2[i])
-		i++;
-	return (str1[i] - str2[i]);
+	index = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[index] != '\0' || s2[index] != '\0')
+	{
+		if (s1[index] != s2[index])
+			return (0);
+		index++;
+	}
+	return (1);
 }
