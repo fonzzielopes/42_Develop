@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:32:18 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 10:50:40 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/13 12:10:13 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_push(t_list **start, t_list **dest)
 	ft_lstadd_front(dest, temp);
 }
 
-/*Decides wether it is beter to rotate or to rev rotate and performs
+/*Decides wether it is better to rotate or to rev rotate and performs
 the operation.*/
 void	ft_perform_rotation(t_list **stack_a, t_list *ptr, int mark, int size)
 {

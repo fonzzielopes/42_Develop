@@ -6,13 +6,12 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:09:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 10:46:57 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/14 10:51:59 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/* passa os arg para digitos (long para aceitar maior que int)*/
 long int	ft_atoi_long(const char *nptr)
 {
 	long int	n;
@@ -38,7 +37,6 @@ long int	ft_atoi_long(const char *nptr)
 	return (n * s);
 }
 
-/* verifica repeticao de arg.*/
 int	ft_check_repeat(int *ar, int size)
 {
 	int	i;

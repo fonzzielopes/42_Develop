@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 10:04:56 by amorion-          #+#    #+#             */
-/*   Updated: 2021/09/13 10:33:32 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/14 11:17:51 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_max_len(t_list *stack_a)
 	return (max);
 }
 
-// Rotates stack a and pushes to b those numbers with 0 in the ith figure.
 void	ft_push_b(t_list **stack_a, t_list **stack_b, int i, int size)
 {
 	t_list	*ptr;

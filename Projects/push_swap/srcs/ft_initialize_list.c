@@ -6,13 +6,12 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:10:18 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 10:49:33 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/14 11:12:48 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// Sort the array as a normal person would do
 void	ft_sort_int_tab(int tab[], int size)
 {
 	int	i;
@@ -33,7 +32,6 @@ void	ft_sort_int_tab(int tab[], int size)
 	}
 }
 
-// Converts index to binary
 char	*ft_to_binary(int n)
 {
 	int		i;
@@ -59,7 +57,6 @@ char	*ft_to_binary(int n)
 	return (bin);
 }
 
-// Asigns an ordered and euqally spaced index to each number
 int	ft_get_index(int num, int order[])
 {
 	int	i;
@@ -70,7 +67,6 @@ int	ft_get_index(int num, int order[])
 	return (i);
 }
 
-// Creates the stack with the indices corresponding to the arguments given
 t_list	*ft_initialize_stack(int **args, int **order, int size)
 {
 	t_list	*stack;

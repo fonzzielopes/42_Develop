@@ -6,13 +6,12 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 10:56:01 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/14 12:21:22 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-// For "" arguments
 int	ft_asign_arg_order2(int *args, int *order, char **argv, int argc)
 {
 	int	i;
@@ -29,7 +28,6 @@ int	ft_asign_arg_order2(int *args, int *order, char **argv, int argc)
 	return (i + 1);
 }
 
-// for separate arguments
 int	ft_asign_arg_order(int *args, int *order, char **argv, int argc)
 {
 	int	i;
@@ -45,7 +43,6 @@ int	ft_asign_arg_order(int *args, int *order, char **argv, int argc)
 	return (i);
 }
 
-// chooses the algorigthm
 void	ft_choose_algo(t_list *stack_a, int argc)
 {
 	if (ft_is_ordered(stack_a))

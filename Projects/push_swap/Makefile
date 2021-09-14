@@ -6,39 +6,32 @@
 #    By: alopes <alopes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:54:46 by alopes            #+#    #+#              #
-#    Updated: 2021/09/13 10:44:43 by alopes           ###   ########.fr        #
+#    Updated: 2021/09/14 12:23:21 by alopes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c \
-		srcs/errors.c \
-		srcs/ft_initialize_list.c \
-		srcs/ft_insert_extreme.c \
-		srcs/lists.c \
-		srcs/moves.c \
-		srcs/ordered.c \
-		srcs/sort_small.c \
-		srcs/free.c \
-		srcs/split.c
+NAME		=	push_swap
 
-OBJS = ${SRCS:.c=.o}
+FLAGS		=	-Wall -Wextra -Werror
+INCLUDES	=	./includes/
 
-NAME = push_swap
+SRCS		=	$(wildcard srcs/*.c)			\
+				$(wildcard Libft/*.c)
 
-.c.o:
-	@gcc -Wall -Werror -Wextra -c $< -o  ${<:.c=.o}
-all: ${NAME}
+OBJS		=	$(SRCS:.c=.o)
 
-${NAME}: ${OBJS}
-	@gcc -Wall -Werror -Wextra -fsanitize=address ${OBJS} -o ${NAME}
+%.o: %.c
+	gcc $(FLAGS) $< -c -o $@ -I $(INCLUDES)
+
+all: $(OBJS)
+	@gcc $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -rf ${OBJS}
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -rf ${NAME}
+	rm -f $(NAME)
 
 re: fclean all
 
-
-.PHONY = all clean fclean re
+.PHONY: all clean flcean re
