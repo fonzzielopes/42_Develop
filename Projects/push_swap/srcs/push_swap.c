@@ -6,13 +6,15 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/14 12:21:22 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/15 11:47:32 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_asign_arg_order2(int *args, int *order, char **argv, int argc)
+//If bigger or smaller comes after the current arg, error
+
+int	ft_asign_arg_order_b(int *args, int *order, char **argv, int argc)
 {
 	int	i;
 
@@ -27,6 +29,8 @@ int	ft_asign_arg_order2(int *args, int *order, char **argv, int argc)
 	ft_free_split(argv);
 	return (i + 1);
 }
+
+//If bigger or smaller comes before the current arg, error
 
 int	ft_asign_arg_order(int *args, int *order, char **argv, int argc)
 {
@@ -43,6 +47,8 @@ int	ft_asign_arg_order(int *args, int *order, char **argv, int argc)
 	return (i);
 }
 
+// Selects the type of sorting algo based on the size of 'stack_a'
+
 void	ft_choose_algo(t_list *stack_a, int argc)
 {
 	if (ft_is_ordered(stack_a))
@@ -52,6 +58,13 @@ void	ft_choose_algo(t_list *stack_a, int argc)
 	else
 		ft_radix_sort(&stack_a, ft_max_len(stack_a), argc - 1);
 }
+
+/*
+** The main() function will and initialize stack_a and fill with the args;
+** it will find the specific errors (repetition, smaller and bigger than int);
+** choose the correct algo to order the stack;
+** try and sort stack_a; and finally exit the program.
+*/
 
 int	main(int argc, char **argv)
 {
@@ -67,7 +80,7 @@ int	main(int argc, char **argv)
 		argc = ft_nword(argv[1], ' ') + 1;
 	args = malloc(sizeof(int) * (argc - 1));
 	order = malloc(sizeof(int) * (argc - 1));
-	if ((argcx == 2 && ft_asign_arg_order2(args, order, ft_split(argv[1], ' '),
+	if ((argcx == 2 && ft_asign_arg_order_b(args, order, ft_split(argv[1], ' '),
 				argc) < argc) || (argcx > 2 && ft_asign_arg_order(args, order,
 				argv, argc) < argc) || ft_check_repeat(args, argc - 1))
 	{

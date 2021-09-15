@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:32:18 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 12:10:13 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/15 10:08:03 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_rev_rotate(t_list **stack)
 	ptr->next = NULL;
 }
 
-//Moves first element of origin to first place in dest.
+// Moves first element of origin to first place in dest.
 void	ft_push(t_list **start, t_list **dest)
 {
 	t_list	*temp;
@@ -65,8 +65,10 @@ void	ft_push(t_list **start, t_list **dest)
 	ft_lstadd_front(dest, temp);
 }
 
-/*Decides wether it is better to rotate or to rev rotate and performs
-the operation.*/
+/*
+** Decides wether it is better to rotate or to rev rotate and performs
+** the operation.
+*/
 void	ft_perform_rotation(t_list **stack_a, t_list *ptr, int mark, int size)
 {
 	if (mark <= size / 2)

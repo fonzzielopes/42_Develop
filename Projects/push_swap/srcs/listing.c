@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialize_list.c                               :+:      :+:    :+:   */
+/*   listing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 10:10:18 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/14 11:12:48 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/15 10:31:20 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	ft_get_index(int num, int order[])
 		i++;
 	return (i);
 }
+
+//Begins to assemble args to array in sort_int tab
 
 t_list	*ft_initialize_stack(int **args, int **order, int size)
 {
