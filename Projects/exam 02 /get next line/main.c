@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 12:04:57 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/15 11:59:41 by alopes           ###   ########.fr       */
+/*   Created: 2021/09/15 11:18:25 by alopes            #+#    #+#             */
+/*   Updated: 2021/09/15 11:25:21 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "get_next_line.h"
 
-// Returns the minimum number of stack_a that is not sorted, as the new limit
-
-void	ft_merge(t_list **stack_a, t_list **stack_b, int *min,
-	int *max)
+int main (void)
 {
-	write(1, "pa\n", 3);
-	ft_push(stack_b, stack_a);
-	if ((*stack_a)->index < *min)
-		*min = (*stack_a)->index;
-	else
+	int		r;
+	char	*line;
+
+	line = NULL;
+	while ((r = get_next_line(&line)) > 0)
 	{
-		write(1, "ra\n", 3);
-		*max = (*stack_a)->index;
-		ft_rotate(stack_a);
+		printf("%s\n", line);
+		free(line);
+		line = NULL;
 	}
+	printf("%s", line);
+	free(line);
+	line = NULL;
 }

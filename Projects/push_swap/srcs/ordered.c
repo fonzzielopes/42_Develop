@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 10:04:56 by amorion-          #+#    #+#             */
-/*   Updated: 2021/09/15 11:54:17 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:29:56 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_push_b(t_list **stack_a, t_list **stack_b, int i, int size)
 }
 
 /*
-** This function will grab the median of 'stack_a' between the first two limits
+** Grab the median of 'stack_a' between the first two limits
 ** of the stack 'limits' and add it to 'limits'
 **
 */

@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:31:39 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/15 10:25:25 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:32:02 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_sort_3_b(t_list **stack)
 }
 
 /*
-** This function sorts stack_a of size less than 3. Only three types of
+** Sort stack_a of size less than 3. Only three types of
 ** instructions are used: rra, ra, sa.
 */
 
@@ -97,8 +97,8 @@ void	ft_insert(t_list **stack_a, t_list **stack_b, int szb)
 }
 
 /*
-** This function takes the first element at the top of 'from_stack' and puts it
-** at the top of 'to_stack'.
+** Take first element at the top of 'from_stack' and put it
+** at the top of the curr stack.
 ** Or shifts down all elements of a stack by 1 - the last element
 ** becomes the first one.
 */
@@ -119,8 +119,8 @@ void	ft_align(t_list **stack_a, int size)
 }
 
 /*
-** This function selects the type of sorting algorithm based in the size of
-** 'stack_a'.
+** Select the type of sorting algorithm based in the size of
+** parsing of 'stack_a'.
 */
 
 void	ft_sort_small(t_list **stack_a, int size)

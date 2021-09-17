@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:01:49 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/13 10:50:06 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/17 11:30:22 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int	ft_strlen(char *str)
 
 t_list	*ft_new_element(int num, int order[])
 {
-	t_list	*nl;
+	t_list	*nel;
 
-	nl = malloc(sizeof(t_list));
-	if (!nl)
+	nel = malloc(sizeof(t_list));
+	if (!nel)
 		return (NULL);
-	nl->index = ft_get_index(num, order);
-	nl->binary = ft_to_binary(nl->index);
-	nl->len = ft_strlen(nl->binary);
-	nl->next = NULL;
-	return (nl);
+	nel->index = ft_get_index(num, order);
+	nel->binary = ft_to_binary(nel->index);
+	nel->len = ft_strlen(nel->binary);
+	nel->next = NULL;
+	return (nel);
 }
 
 void	ft_lstadd_front(t_list **list, t_list *new)

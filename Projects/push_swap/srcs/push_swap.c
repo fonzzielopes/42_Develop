@@ -6,7 +6,7 @@
 /*   By: alopes <alopes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:39:32 by alopes            #+#    #+#             */
-/*   Updated: 2021/09/15 11:47:32 by alopes           ###   ########.fr       */
+/*   Updated: 2021/09/17 11:25:51 by alopes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	ft_choose_algo(t_list *stack_a, int argc)
 }
 
 /*
-** The main() function will and initialize stack_a and fill with the args;
-** it will find the specific errors (repetition, smaller and bigger than int);
-** choose the correct algo to order the stack;
-** try and sort stack_a; and finally exit the program.
+** Initialize stack_a and fill with the args;
+** Errors (repetition, smaller and bigger than int);
+** Choose the correct algo to order the stack;
+** Try and sort stack_a;
 */
 
 int	main(int argc, char **argv)
